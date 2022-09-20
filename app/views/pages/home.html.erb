@@ -6,7 +6,15 @@
     </button>
     <div class="dropdown-content">
         <a href="admin">Admin</a>
-        <a href="#">Member</a>
+
+        
+        <% if user_signed_in? %>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <% else %>
+        <%= link_to "Log In", new_user_session_path %> 
+        <%= link_to "New User", new_user_registration_path %>
+        <% end %>
+
     </div>
   </div>
 </div>
@@ -31,6 +39,15 @@
         <%= image_tag("ACS-Home.png", width: "100%") %>
     </div>
     <h1 align="center">Home</h1>
+
+    <% if user_signed_in? %>
+        <p> You currently have 0 points </p>
+        <p> Add an event point!!! <b>Link</b> </p>
+    <% end %>
+
+</div>
+
+<div>
 
 </div>
 </body>
