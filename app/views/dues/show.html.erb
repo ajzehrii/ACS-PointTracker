@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Semester id:</strong>
+  <%= @due.semester_ID %>
+</p>
+
+<p>
+  <strong>Student id:</strong>
+  <%= @due.student_ID %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @due.paid %>
+</p>
+
+<p>
+  <strong>Ammount:</strong>
+  <%= @due.ammount %>
+</p>
+
+<%= link_to 'Edit', edit_due_path(@due) %> |
+<%= link_to 'Back', dues_path %>

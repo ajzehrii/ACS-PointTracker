@@ -1,0 +1,2 @@
+class AcsAdmin < ApplicationRecord
+end

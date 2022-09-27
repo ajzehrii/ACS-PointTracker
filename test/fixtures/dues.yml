@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  semester_ID: MyString
+  student_ID: 1
+  paid: false
+  ammount: 1.5
+
+two:
+  semester_ID: MyString
+  student_ID: 1
+  paid: false
+  ammount: 1.5

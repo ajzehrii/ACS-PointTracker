@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Acs Admins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Admin id</th>
+      <th>Student id</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Position</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acs_admins.each do |acs_admin| %>
+      <tr>
+        <td><%= acs_admin.admin_ID %></td>
+        <td><%= acs_admin.student_ID %></td>
+        <td><%= acs_admin.username %></td>
+        <td><%= acs_admin.password %></td>
+        <td><%= acs_admin.position %></td>
+        <td><%= link_to 'Show', acs_admin %></td>
+        <td><%= link_to 'Edit', edit_acs_admin_path(acs_admin) %></td>
+        <td><%= link_to 'Destroy', acs_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Acs Admin', new_acs_admin_path %>
