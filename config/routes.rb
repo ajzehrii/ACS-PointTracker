@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   resources :dues
   resources :attendances
   resources :meetings
+  resources :emails do
+    collection do
+      get '/subscribe', :to => "emails#subscribe", :as => 'subscribe'
+    end
+  end
   root 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
