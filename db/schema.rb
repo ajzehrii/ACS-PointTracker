@@ -25,16 +25,6 @@ ActiveRecord::Schema.define(version: 2022_09_27_161915) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "admins", force: :cascade do |t|
-    t.integer "admin_ID"
-    t.integer "student_ID"
-    t.string "username"
-    t.string "password"
-    t.string "position"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "attendances", force: :cascade do |t|
     t.integer "meeting_ID"
     t.integer "student_ID"
@@ -47,12 +37,6 @@ ActiveRecord::Schema.define(version: 2022_09_27_161915) do
     t.integer "student_ID"
     t.boolean "paid"
     t.float "ammount"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "email_lists", force: :cascade do |t|
-    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
