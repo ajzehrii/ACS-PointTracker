@@ -13,7 +13,7 @@
 
 <div class= "page-body">
     <div class="main-nav">
-        <a href="home">Home</a>
+        <a class ="selected-tab" href="home">Home</a>
         <a href="about">About</a>
         <a href="officer-team">Officer Team</a>
         <div class="drop">
@@ -31,6 +31,27 @@
         <div class = "home-img" align="center">
             <%= image_tag("ACS-Home1.png", width: "100%") %>
         </div>
+    </div>
+
+    <div class= "cpage-body">
+        <h3>Howdy! We hold general meetings biweekly on Mondays at 6:00-7:30 p.m. in person.</h3>
+        <h3>Join our <a href="https://calendar.google.com/calendar/u/0?cid=Y185ZGpqbXZvOXA2MG9lZ2Ywbmh1Y2c5cGhmOEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"  target="_blank">open meeting google calendar!</a></h3>
+
+        <div class = "cards">
+            <div onclick="window.location.href = 'general-meetings';" class = "card">
+                <%= image_tag("ACS-HB-GM.png", width: "100%") %>
+                <p>Biweekly general meetings are held throughout the fall and spring semesters from 6:00-7:30pm. Hear from chemists in all sorts of fields such as industry, medical, business, and academia! </p>
+            </div>
+            <div onclick="window.location.href = '#';"class = "card">
+                <%= image_tag("ACS-HB-O.png", width: "100%") %>
+                <p>Interested in sharing science with the next generation? From the A&M Chemistry Open House to elementary school science nights ACS volunteers throughout the BCS area. </p>
+            </div>
+            <div onclick="window.location.href = '#';"class = "card">
+                <%= image_tag("ACS-HB-CD.png", width: "100%") %>
+                <p>Interested in starting undergraduate research or getting comfortable with approaching professors? ACS offers opportunities to get to know professors to enrich your education here in A&M for the future.</p>
+            </div>
+        </div>
+    
     </div>
 
 

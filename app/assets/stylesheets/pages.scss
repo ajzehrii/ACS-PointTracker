@@ -44,6 +44,12 @@
     text-decoration: none;
     min-width: 175px;
 }
+
+//page your on, so user knows what page 
+.selected-tab{
+    background-color:rgb(196, 196, 196);
+    color: #ffffff;
+}
 //dropdown
 .drop{
     min-width: 20%;
@@ -130,10 +136,10 @@ display: block;
 
 //page footer with copy right and mailing list
 .page-footer{
-    position: absolute;
+    margin-top: 30px;
     bottom: 0;
     margin-bottom: 0;
-    width: 65%;
+    width: 100%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -171,4 +177,32 @@ display: block;
     background-color: #591C0B;
     color: white;
     width: 20%;
+}
+
+
+//cards on homepage
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;   
+    margin-top: 75px;
+    margin-bottom: 30px;
+}
+         
+.card {
+    background-color: #ffffff50;
+    border: 0.5px solid #591c0b27;
+    box-shadow: 0px 0px 8px #88888881;
+    max-width: 100%;
+    border-radius: 4px;
+    padding: .5rem;
+    transition: all .2s ease-in;
+}
+
+.card:hover {
+    background-color: #adadad41;
+    color: white;
+    cursor: pointer;
+    transition: all .2s ease-in;
 }
