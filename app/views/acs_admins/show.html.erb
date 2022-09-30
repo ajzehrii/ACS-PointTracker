@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Admin id:</strong>
+  <%= @acs_admin.admin_ID %>
+</p>
+
+<p>
+  <strong>Student id:</strong>
+  <%= @acs_admin.student_ID %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @acs_admin.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @acs_admin.password %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @acs_admin.position %>
+</p>
+
+<%= link_to 'Edit', edit_acs_admin_path(@acs_admin) %> |
+<%= link_to 'Back', acs_admins_path %>

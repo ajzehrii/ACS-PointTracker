@@ -1,0 +1,42 @@
+<%= form_with(model: acs_admin) do |form| %>
+  <% if acs_admin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(acs_admin.errors.count, "error") %> prohibited this acs_admin from being saved:</h2>
+
+      <ul>
+        <% acs_admin.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :admin_ID %>
+    <%= form.number_field :admin_ID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_ID %>
+    <%= form.number_field :student_ID %>
+  </div>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

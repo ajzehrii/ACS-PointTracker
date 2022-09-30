@@ -1,0 +1,57 @@
+<head>
+    <title>About | ACS Texas A&M</title>
+</head>
+<div class="nav">
+  <div class="dropdown">
+    <button onclick="location.href='#';" class="login">Login
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+        <a href="admin">Admin</a>
+        <a href="#">Member</a>
+    </div>
+  </div>
+</div>
+
+<div class= "page-body">
+    <div class="main-nav">
+        <a href="home">Home</a>
+        <a class ="selected-tab" href="about">About</a>
+        <a href="officer-team">Officer Team</a>
+        <div class="drop">
+        <a href="general-meetings">General Meetings</a>
+        <div class="dropdown-content">
+            <a href="general-meetings">General Meetings</a>
+            <a href="#">Outreach</a>
+            <a href="#">Social Events</a>
+            <a href="#">Career Development</a>
+        </div>
+        </div>
+        <a href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=358"  target="_blank">Store</a>
+    </div>
+    
+    <div class= "page-heading">
+        <div class = "home-img" align="center">
+            <%= image_tag("ACS-Header.png", width: "100%") %>
+        </div>
+    </div>
+
+    <div class= "cpage-body">
+        <h3>Due to COVID-19, all of our general meetings, socials, and outreach activities will be done virtually using ZOOM.</h3>
+        <h4>Mission:</h4>
+        <p>ACS serves the undergraduate scientific community at Texas A&M providing resources to students interested in chemistry. We are committed to providing a space for those interested in science to learn from industry/academic experts how an interest in chemistry may be used to build a meaningful career in teaching, R&D and healthcare related fields. We aid students in finding chemistry related internships and REU opportunities, engage in science outreach projects in the BCS area and interact with the national ACS chapter at regional and national meetings. </p>
+
+        <p>We would love to see you at our next meeting! You can keep up with our organization by following us on Twitter and Instagram.</p>
+    </div>
+
+    <footer class="page-footer">
+        <div class = "sub">
+            <h4>Join our mailing list. Never miss an update</h4>
+            <div class = "sub-b">
+                <%= link_to 'Subscribe', new_email_path %>
+            </div>
+        </div>
+        <p> 2022 by Texas A&M American Chemical Society Student Affiliate Chapter.</p>
+    </footer>
+
+</div>

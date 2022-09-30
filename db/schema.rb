@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_16_181652) do
+ActiveRecord::Schema.define(version: 2022_09_27_161915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "acs_admins", force: :cascade do |t|
+    t.integer "admin_ID"
+    t.integer "student_ID"
+    t.string "username"
+    t.string "password"
+    t.string "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer "meeting_ID"
+    t.integer "student_ID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dues", force: :cascade do |t|
+    t.string "semester_ID"
+    t.integer "student_ID"
+    t.boolean "paid"
+    t.float "ammount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "emails", force: :cascade do |t|
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.integer "meeting_ID"
+    t.date "date"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "members", force: :cascade do |t|
     t.integer "student_ID"

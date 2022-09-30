@@ -1,0 +1,73 @@
+<head>
+    <title>General Meetings | ACS Texas A&M</title>
+</head>
+
+<div class="nav">
+  <div class="dropdown">
+    <button onclick="location.href='#';" class="login">Login
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+        <a href="admin">Admin</a>
+        <a href="#">Member</a>
+    </div>
+  </div>
+</div>
+
+<div class= "page-body">
+    <div class="main-nav">
+        <a href="home">Home</a>
+        <a href="about">About</a>
+        <a href="officer-team">Officer Team</a>
+        <div class="drop">
+        <a class ="selected-tab" href="general-meetings">General Meetings</a>
+        <div class="dropdown-content">
+            <a href="general-meetings">General Meetings</a>
+            <a href="#">Outreach</a>
+            <a href="#">Social Events</a>
+            <a href="#">Career Development</a>
+        </div>
+        </div>
+        <a href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=358"  target="_blank">Store</a>
+    </div>
+
+    <div class= "page-heading">
+        <div class = "home-img" align="center">
+            <%= image_tag("ACS-Header.png", width: "100%") %>
+        </div>
+    </div>
+
+    <div class= "cpage-body">
+        <h1>General Meetings</h1>
+        <h3>Held biweekly @ 6:30pm virtually</h3>
+        <dl>
+            <dt>08/25:</dt>
+            <dd>Beginning of Semester Social/Science Career Fair Informational</dd>
+            <dt>09/08:</dt>
+            <dd>Catalyzing Bonds Social</dd>
+            <dt>09/22:</dt>
+            <dd>Speaker: Dr. Jeffery Cirillo (Coronavirus research)</dd>
+            <dt>10/06:</dt>
+            <dd>Speaker: Dr. Aitkenhead-Peterson (Forensic soil chemistry)</dd>
+            <dt>10/20:</dt>
+            <dd>Speaker: Tatia Felman (Houston Methodist Learning Medicine)</dd>
+            <dt>11/03:</dt>
+            <dd>Speaker: Christ Holmquist from Supersense (Chemistry of Instant Photography)</dd>
+            <dt>11/17:</dt>
+            <dd>Speaker: Tami Annable (Executive Director at Temple Health and Bioscience Center)</dd>
+        </dl>
+
+    </div>
+
+
+    <footer class="page-footer">
+        <div class = "sub">
+            <h4>Join our mailing list. Never miss an update</h4>
+            <div class = "sub-b">
+                <%= link_to 'Subscribe', new_email_path %>
+            </div>
+        </div>
+        <p> 2022 by Texas A&M American Chemical Society Student Affiliate Chapter.</p>
+    </footer>
+
+</div>
