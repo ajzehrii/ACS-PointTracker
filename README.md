@@ -54,8 +54,8 @@ The application can be seen using a browser and navigating to http://localhost:3
 ## Deployment ##
 
 ** Heroku has automatic deploys linked to this github. 
-Test app (linked to test branch) - https://acs--testbranch.herokuapp.com/
-Stagin app (linked to main branch) - https://acs-stage-test-app.herokuapp.com/
+* Test app (linked to test branch) - https://acs--testbranch.herokuapp.com/
+* Stagin app (linked to main branch) - https://acs-stage-test-app.herokuapp.com/
 
 
 ## CI/CD ##
