@@ -22,27 +22,30 @@
 .page-body{
     width: 65%;
     margin: auto;
-    background-color: rgb(231, 231, 231);
+    background-color: #fdfdfd;
 }
 
 //lower navigation bar [home, about, officer team, general meetings, store] for main sight
 .main-nav {
-    overflow: hidden;
     background-color: rgb(231, 231, 231);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display:flex;
+    text-align: center;
+    list-style: none;
+    position: fixed, center;
     justify-content:space-evenly;
     border: solid  #5C5F58;
     border-width:1px 0px;
+    width: 100%;
 }
 
 .main-nav a {
     font-size: 15px;
     color: #5C5F58;
-    text-align: center;
+    display: inline-block;
     padding: 8px 12px;
     text-decoration: none;
-    min-width: 175px;
+    width: 20%;
 }
 
 //page your on, so user knows what page 
@@ -52,10 +55,15 @@
 }
 //dropdown
 .drop{
-    min-width: 20%;
-    display:flex;
+    width: 20%;
     justify-content: center;
 }
+
+.drop a{
+    width: 100%;
+    justify-content: center;
+}
+
 .dropdown {
     float: left;
     overflow: hidden;
@@ -92,12 +100,12 @@
     position: absolute;
     background-color: #ffffff;;
     z-index: 1;
-    min-width: 175px;
+    width: 13.2%;
 }
 .dropdown-content a {
     float: none;
     color: #800000;
-    padding: 8px 12px;
+    padding: 8px 0px;
     text-decoration: none;
     display: block;
     text-align: center;

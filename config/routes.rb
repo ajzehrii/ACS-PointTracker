@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get"officer-team", to: "pages#officer-team"
   get"general-meetings", to: "pages#general-meetings"
   get"admin", to: "pages#admin"
+  get"outreach", to: "pages#outreach"
+  get"social-events", to: "pages#social-events"
+  get"career-development", to: "pages#career-development"
 
   resources :members
   resources :acs_admins
