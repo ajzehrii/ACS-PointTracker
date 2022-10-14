@@ -7,20 +7,22 @@
     .main-nav {
         margin-left: auto;
         margin-right: auto;
-        background-color: rgb(231, 231, 231);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         text-align: center;
-        border: solid  #5C5F58;
-        border-width:1px 0px;
+        color: #ffffff;
         width: 100%;
     }
     
     .main-nav a {
-        font-size: 15px;
-        color: #5C5F58;
-        padding: 8px 12px;
+        font-size: 17px;
+        display: block;
+        color: rgb(255, 255, 255);
+        padding: 12px 16px;
         text-decoration: none;
-        width: 20%;
+    }
+    .main-nav a:hover, .dropdown:hover .dropbtn {
+        background-color:rgba(221, 221, 221, 0.021);;
+        color: #ffffff;;
     }
 
     //dropdown under general meetings tab
@@ -170,74 +172,7 @@
     }
     
     
-    //heading for all main pages
-    .page-heading{
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-    .page-heading h2{
-        font-size:15px;
-        padding: 0px;
-    }
-    
-    
-    //center page body (main page contents)
-    .cpage-body{
-        margin-top: -20px;
-        display: block;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 20px;
-    }
 
-    //page footer with copy right and mailing list
-    .page-footer{
-        position: relative;
-        margin-top: 30px;
-        margin-bottom: 0;
-        bottom:0;
-        left:0;
-        width: 100%;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .page-footer h4{
-        font-size:15px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        text-align: center;
-        margin: 10px;
-    }
-    
-    .page-footer p{
-        background-color: #591C0B;
-        color: rgba(245, 245, 245, 0.603);
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        text-align: center;
-        padding: 8px;
-    }
-    
-    //subscribe section
-    .sub{
-        margin: auto;
-        width: 50%;
-        border: solid #591C0B;
-        border-width:1px;
-        margin-bottom: 10px;
-    
-    }
-    //subscribe button in footer (mailing list)
-    .sub-b{
-        margin-left: auto;
-        margin-bottom: 10px;
-        margin-right: auto;
-        text-align: center;
-        padding:4px 8px;
-        background-color: #591C0B;
-        color: white;
-        width: 20%;
-    }
     
     //cards on homepage
     .cards {
@@ -264,6 +199,54 @@
     
 }
 
+//page footer with copy right and mailing list
+.page-footer{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 0;
+    bottom:0;
+    left:0;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-footer h4{
+    font-size:15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin: 10px;
+}
+
+.page-footer p{
+    background-color: #591C0B;
+    color: rgba(245, 245, 245, 0.603);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    padding: 8px;
+}
+
+//subscribe section
+.sub{
+    margin: auto;
+    width: 95%;
+    border: solid #591c0b57;
+    border-width:1px;
+    margin-bottom: 10px;
+
+}
+//subscribe button in footer (mailing list)
+.sub-b{
+    margin-left: auto;
+    margin-bottom: 10px;
+    margin-right: auto;
+    text-align: center;
+    padding:4px 8px;
+    background-color: #591C0B;
+    color: white;
+    width: 20%;
+}
 
 //login dropdown settings
 .dropdown .login {
@@ -314,7 +297,25 @@
 }
 //upper nav bar [login, ui access] 
 
+//heading for all main pages
+.page-heading{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.page-heading h2{
+    font-size:15px;
+    padding: 0px;
+}
 
+
+//center page body (main page contents)
+.cpage-body{
+    margin-top: -20px;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
 
 
 
