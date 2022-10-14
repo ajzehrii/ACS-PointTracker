@@ -12,19 +12,51 @@
 
 
 <body>
-<div class="nav">
-  <div class="dropdown">
-    <button onclick="location.href='#';" class="login">Login
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-        <a href="admin">Admin</a>
-        <a href="#">Member</a>
+<div class = "portrait-navs">
+    <div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-nav p-4">
+        <div class="main-nav">
+            <a class ="selected-tab" href="home">Home</a>
+            <a href="about">About</a>
+            <a href="officer-team">Officer Team</a>
+            <div class="drop">
+                <a href="general-meetings">General Meetings</a>
+                <div class="dropdown-content">
+                    <a href="outreach">Outreach</a>
+                    <a href="social-events">Social Events</a>
+                    <a href="career-development">Career Development</a>
+                </div>
+            </div>
+            <a href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=358"  target="_blank">Store</a>
+        </div>
     </div>
-  </div>
-</div>
+    </div>
 
-<div class= "page-body">
+    <nav class="navbar navbar-dark bg-nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    </div>
+
+    
+</div>
+<div class = "landscape-navs">
+    <div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-nav p-4">
+        <h5 class="text-white h4"><a href="admin">Admin</a></h5>
+        <h5 class="text-white h4"><a href="#">Member</a></h5>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-nav">
+        <button class="member-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <p>Members</p>
+        </button>
+    </nav>
+    </div>
+
     <div class="main-nav">
         <a class ="selected-tab" href="home">Home</a>
         <a href="about">About</a>
@@ -39,6 +71,8 @@
         </div>
         <a href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=358"  target="_blank">Store</a>
     </div>
+</div>
+<div class= "page-body">
     <div class= "page-heading">
         <div class = "home-img" align="center">
             <%= image_tag("ACS-Home1.png", width: "100%") %>
@@ -68,7 +102,11 @@
 
 
 
-    <footer>
+    
+</div>
+</body>
+
+<footer>
         <div class ="page-footer">
             <div class = "sub">
                 <h4>Join our mailing list. Never miss an update</h4>
@@ -78,8 +116,6 @@
             </div>
             <p> 2022 by Texas A&M American Chemical Society Student Affiliate Chapter.</p>
         </div>
-    </footer>
-</div>
-</body>
+</footer>
 
 </html>

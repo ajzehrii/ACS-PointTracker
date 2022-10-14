@@ -1,20 +1,45 @@
 
 @media screen and (orientation:portrait) {
-    .nav {
-        overflow: hidden;
-        background-color: #ff3700;
+    .landscape-navs{
+        display:none;
+    }
+
+    .main-nav {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgb(231, 231, 231);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin:0;
-        padding:8px;
+        text-align: center;
+        border: solid  #5C5F58;
+        border-width:1px 0px;
+        width: 100%;
+    }
+    
+    .main-nav a {
+        font-size: 15px;
+        color: #5C5F58;
+        padding: 8px 12px;
+        text-decoration: none;
+        width: 20%;
+    }
+
+    //dropdown under general meetings tab
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;;
+        z-index: 1;
+        width: 220px;
     }
 
     .page-body{
-        width: 95%;
+        width: 100%;
         margin: auto;
         background-color: #fdfdfd;
     }
     //cards on homepage
     .cards {
+        justify-items: center;
         margin-left: auto;
         margin-right: auto;
         display: grid;
@@ -22,14 +47,14 @@
         grid-auto-rows: auto;
         grid-gap: 2rem;   
         margin-top: 75px;
-        margin-bottom: 50pxpx;
+        margin-bottom: 50px;
     }
 
     .card {
         background-color: #ffffff50;
         border: 0.5px solid #591c0b27;
         box-shadow: 0px 0px 8px #88888881;
-        max-width: 70%;
+        max-width: 78%;
         border-radius: 4px;
         padding-top: .5rem;
         padding-left: .5rem;
@@ -39,34 +64,30 @@
     /* ... */
 }
 @media screen and (orientation: landscape) {
+    .portrait-navs{
+        display:none;
+    }
     .page-body{
         width: 1100px;
         margin: auto;
         background-color: #fdfdfd;
     }
 
-    .nav {
-        position:relative;
-        width:100%;
-        overflow: hidden;
-        background-color: #591C0B;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin:0;
-        padding:8px;
-    }
-    .nav a {
-        float: right;
-        font-size: 15px;
-        color: white;
-        text-align: center;
-        padding: 12px;
-        text-decoration: none;
-        
+    .member-toggler {
+        padding:10px; 
+        height: 40px;
+        line-height: 1;
+
+        background-color: transparent !important;
+        border: 1px solid rgba(0, 0, 0, 0.007) !important;
+        border-radius: 0.25rem !important;
     }
     
     
     //lower navigation bar [home, about, officer team, general meetings, store] for main sight
     .main-nav {
+        margin-left: auto;
+        margin-right: auto;
         background-color: rgb(231, 231, 231);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         display:flex;
@@ -76,7 +97,7 @@
         justify-content:space-evenly;
         border: solid  #5C5F58;
         border-width:1px 0px;
-        width: 100%;
+        width: 1100px;
     }
     
     .main-nav a {
@@ -109,19 +130,6 @@
         overflow: hidden;
     }
     
-    //login dropdown settings
-    .dropdown .login {
-        font-size: 15px;
-        border: none;
-        outline: none;
-        text-align: center;
-        color: #ffffff;
-        padding: 12px;
-        background-color: inherit;
-        font-family: inherit; 
-        margin: 0;
-    }
-    
     
     
     //hover settings for nav & main-nav
@@ -150,16 +158,16 @@
         display: block;
         text-align: center;
     }
+
     .dropdown-content a:hover {
-    background-color: #ddd;
+        background-color: #ddd;
     }
     .dropdown:hover .dropdown-content {
-    display: block;
+        display: block;
     }
     .drop:hover .dropdown-content {
         display: block;
     }
-    
     
     
     //heading for all main pages
@@ -256,6 +264,40 @@
     
 }
 
+
+//login dropdown settings
+.dropdown .login {
+    font-size: 15px;
+    border: none;
+    outline: none;
+    text-align: center;
+    color: #ffffff;
+    padding: 12px;
+    background-color: inherit;
+    font-family: inherit; 
+    margin: 0;
+}
+
+
+//top drop down member portal
+.nav {
+    position:relative;
+    width:100%;
+    overflow: hidden;
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin:0;
+    padding:8px;
+}
+.nav a {
+    float: right;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    
+}
         
 
 .card p{
