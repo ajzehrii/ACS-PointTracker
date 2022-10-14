@@ -1,216 +1,254 @@
 
-
-//upper nav bar [login, ui access] 
-.nav {
-    overflow: hidden;
-    background-color: #591C0B;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin:0;
-    padding:8px;
+@media screen and (orientation:portrait) {
+    .nav {
+        overflow: hidden;
+        background-color: #ff3700;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin:0;
+        padding:8px;
+    }
+    /* ... */
 }
-.nav a {
-    float: right;
-    font-size: 15px;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
+@media screen and (orientation: landscape) {
+    .page-body{
+        width: 1100px;
+        margin: auto;
+        background-color: #fdfdfd;
+    }
+
+    .nav {
+        position:relative;
+        width:100%;
+        overflow: hidden;
+        background-color: #591C0B;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin:0;
+        padding:8px;
+    }
+    .nav a {
+        float: right;
+        font-size: 15px;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        
+    }
+    
+    
+    //lower navigation bar [home, about, officer team, general meetings, store] for main sight
+    .main-nav {
+        background-color: rgb(231, 231, 231);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        display:flex;
+        text-align: center;
+        list-style: none;
+        position: fixed, center;
+        justify-content:space-evenly;
+        border: solid  #5C5F58;
+        border-width:1px 0px;
+        width: 100%;
+    }
+    
+    .main-nav a {
+        font-size: 15px;
+        color: #5C5F58;
+        display: inline-block;
+        padding: 8px 12px;
+        text-decoration: none;
+        width: 20%;
+    }
+    
+    //page your on, so user knows what page 
+    .selected-tab{
+        background-color:rgb(196, 196, 196);
+        color: #ffffff;
+    }
+    //dropdown
+    .drop{
+        width: 20%;
+        justify-content: center;
+    }
+    
+    .drop a{
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+    
+    //login dropdown settings
+    .dropdown .login {
+        font-size: 15px;
+        border: none;
+        outline: none;
+        text-align: center;
+        color: #ffffff;
+        padding: 12px;
+        background-color: inherit;
+        font-family: inherit; 
+        margin: 0;
+    }
+    
+    
+    
+    //hover settings for nav & main-nav
+    .nav a:hover, .dropdown:hover .dropbtn {
+        background-color: #ffffff;
+        color: #800000;
+    }
+    .main-nav a:hover, .dropdown:hover .dropbtn {
+        background-color:#ddd;;
+        color: #ffffff;;
+    }
+    
+    //dropdown under general meetings tab
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;;
+        z-index: 1;
+        width: 220px;
+    }
+    .dropdown-content a {
+        float: none;
+        color: #800000;
+        padding: 8px 0px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+    }
+    .dropdown-content a:hover {
+    background-color: #ddd;
+    }
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+    .drop:hover .dropdown-content {
+        display: block;
+    }
+    
+    
+    
+    //heading for all main pages
+    .page-heading{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .page-heading h2{
+        font-size:15px;
+        padding: 0px;
+    }
+    
+    
+    //center page body (main page contents)
+    .cpage-body{
+        margin-top: -20px;
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+    }
+
+    //page footer with copy right and mailing list
+    .page-footer{
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 0;
+        bottom:0;
+        left:0;
+        width: 100%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .page-footer h4{
+        font-size:15px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        margin: 10px;
+    }
+    
+    .page-footer p{
+        background-color: #591C0B;
+        color: rgba(245, 245, 245, 0.603);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        padding: 8px;
+    }
+    
+    //subscribe section
+    .sub{
+        margin: auto;
+        width: 50%;
+        border: solid #591C0B;
+        border-width:1px;
+        margin-bottom: 10px;
+    
+    }
+    //subscribe button in footer (mailing list)
+    .sub-b{
+        margin-left: auto;
+        margin-bottom: 10px;
+        margin-right: auto;
+        text-align: center;
+        padding:4px 8px;
+        background-color: #591C0B;
+        color: white;
+        width: 20%;
+    }
+    
+    
+    //cards on homepage
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+        grid-gap: 1rem;   
+        margin-top: 75px;
+        margin-bottom: 30px;
+    }
+             
+    .card {
+        background-color: #ffffff50;
+        border: 0.5px solid #591c0b27;
+        box-shadow: 0px 0px 8px #88888881;
+        max-width: 100%;
+        border-radius: 4px;
+        padding-top: .5rem;
+        padding-left: .5rem;
+        padding-right: .5rem;
+        transition: all .2s ease-in;
+    }
+
+    .card p{
+        padding-top: .5rem;
+    }
+
+    
+    
+    .card:hover {
+        background-color: #adadad41;
+        color: white;
+        cursor: pointer;
+        transition: all .2s ease-in;
+    }
     
 }
-
-//adjusting width
-.page-body{
-    width: 65%;
-    margin: auto;
-    background-color: #fdfdfd;
-}
-
-//lower navigation bar [home, about, officer team, general meetings, store] for main sight
-.main-nav {
-    background-color: rgb(231, 231, 231);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display:flex;
-    text-align: center;
-    list-style: none;
-    position: fixed, center;
-    justify-content:space-evenly;
-    border: solid  #5C5F58;
-    border-width:1px 0px;
-    width: 100%;
-}
-
-.main-nav a {
-    font-size: 15px;
-    color: #5C5F58;
-    display: inline-block;
-    padding: 8px 12px;
-    text-decoration: none;
-    width: 20%;
-}
-
-//page your on, so user knows what page 
-.selected-tab{
-    background-color:rgb(196, 196, 196);
-    color: #ffffff;
-}
-//dropdown
-.drop{
-    width: 20%;
-    justify-content: center;
-}
-
-.drop a{
-    width: 100%;
-    justify-content: center;
-}
-
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-
-//login dropdown settings
-.dropdown .login {
-    font-size: 15px;
-    border: none;
-    outline: none;
-    text-align: center;
-    color: #ffffff;
-    padding: 12px;
-    background-color: inherit;
-    font-family: inherit; 
-    margin: 0;
-}
+//upper nav bar [login, ui access] 
 
 
 
-//hover settings for nav & main-nav
-.nav a:hover, .dropdown:hover .dropbtn {
-    background-color: #ffffff;
-    color: #800000;
-}
-.main-nav a:hover, .dropdown:hover .dropbtn {
-    background-color:#ddd;;
-    color: #ffffff;;
-}
-
-//dropdown under general meetings tab
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;;
-    z-index: 1;
-    width: 13.2%;
-}
-.dropdown-content a {
-    float: none;
-    color: #800000;
-    padding: 8px 0px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-}
-.dropdown-content a:hover {
-background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-display: block;
-}
-.drop:hover .dropdown-content {
-    display: block;
-}
 
 
 
-//heading for all main pages
-.page-heading{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.page-heading h2{
-    font-size:15px;
-    padding: 0px;
-}
 
+//bootstrap edits section
 
-//center page body (main page contents)
-.cpage-body{
-    margin-top: -20px;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-}
-
-//page footer with copy right and mailing list
-.page-footer{
-    margin-top: 30px;
-    bottom: 0;
-    margin-bottom: 0;
-    width: 100%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.page-footer h4{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    margin: 10px;
-}
-
-.page-footer p{
-    background-color: #591C0B;
-    color: rgba(245, 245, 245, 0.603);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    padding: 8px;
-}
-
-//subscribe section
-.sub{
-    margin: auto;
-    width: 50%;
-    border: solid #591C0B;
-    border-width:1px;
-
-}
-//subscribe button in footer (mailing list)
-.sub-b{
-    margin-left: auto;
-    margin-bottom: 10px;
-    margin-right: auto;
-    text-align: center;
-    padding:4px 8px;
-    background-color: #591C0B;
-    color: white;
-    width: 20%;
-}
-
-
-//cards on homepage
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    grid-gap: 1rem;   
-    margin-top: 75px;
-    margin-bottom: 30px;
-}
-         
-.card {
-    background-color: #ffffff50;
-    border: 0.5px solid #591c0b27;
-    box-shadow: 0px 0px 8px #88888881;
-    max-width: 100%;
-    border-radius: 4px;
-    padding: .5rem;
-    transition: all .2s ease-in;
-}
-
-.card:hover {
-    background-color: #adadad41;
-    color: white;
-    cursor: pointer;
-    transition: all .2s ease-in;
+.bg-nav {
+    background-color: #591C0B !important;
 }
