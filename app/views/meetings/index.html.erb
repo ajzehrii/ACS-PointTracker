@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Meetings</h1>
+<div class="container">
+<h1>Meetings!</h1>
 
 <table>
   <thead>
@@ -30,4 +30,30 @@
 
 <br>
 
+<%= month_calendar(events: @meetings) do |date,meetings| %>
+  <div class="day">
+    <%= date.day %>
+  </div>
+  <% meetings.each do |meeting| %>
+    <div class= "card-header">
+      <div class="card-title">
+        <%= link_to meeting.name, meeting %>
+      </div>
+    </div>
+    <div class="card-body">
+    <p class="card-text"><%= meeting.description %> </p>
+    </div>
+    <div class="card-footer">
+    <p class="card-text"> 
+      Starts at: <%= meeting.start_time.strftime('%I:%M %p') %>
+    </p>
+    </div>
+    <% end %>
+<% end %>
+
+
 <%= link_to 'New Meeting', new_meeting_path %>
+<%= link_to 'Home', home_path %>
+
+
+</div>
