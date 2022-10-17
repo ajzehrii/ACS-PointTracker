@@ -1,3 +1,3 @@
 Email.create!([
-  {address: "test@gmail.com"}
-])
+                { address: 'test@gmail.com' }
+              ])

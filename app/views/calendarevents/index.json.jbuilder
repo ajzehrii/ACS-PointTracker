@@ -1,1 +1,1 @@
-json.array! @calendarevents, partial: "calendarevents/calendarevent", as: :calendarevent
+json.array! @calendarevents, partial: 'calendarevents/calendarevent', as: :calendarevent

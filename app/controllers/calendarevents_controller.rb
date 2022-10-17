@@ -1,5 +1,5 @@
 class CalendareventsController < ApplicationController
-  before_action :set_calendarevent, only: %i[ show edit update destroy ]
+  before_action :set_calendarevent, only: %i[show edit update destroy]
 
   # GET /calendarevents or /calendarevents.json
   def index
@@ -7,8 +7,7 @@ class CalendareventsController < ApplicationController
   end
 
   # GET /calendarevents/1 or /calendarevents/1.json
-  def show
-  end
+  def show; end
 
   # GET /calendarevents/new
   def new
@@ -16,8 +15,7 @@ class CalendareventsController < ApplicationController
   end
 
   # GET /calendarevents/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /calendarevents or /calendarevents.json
   def create
@@ -25,7 +23,7 @@ class CalendareventsController < ApplicationController
 
     respond_to do |format|
       if @calendarevent.save
-        format.html { redirect_to calendarevent_url(@calendarevent), notice: "Calendarevent was successfully created." }
+        format.html { redirect_to calendarevent_url(@calendarevent), notice: 'Calendarevent was successfully created.' }
         format.json { render :show, status: :created, location: @calendarevent }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class CalendareventsController < ApplicationController
   def update
     respond_to do |format|
       if @calendarevent.update(calendarevent_params)
-        format.html { redirect_to calendarevent_url(@calendarevent), notice: "Calendarevent was successfully updated." }
+        format.html { redirect_to calendarevent_url(@calendarevent), notice: 'Calendarevent was successfully updated.' }
         format.json { render :show, status: :ok, location: @calendarevent }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class CalendareventsController < ApplicationController
     @calendarevent.destroy
 
     respond_to do |format|
-      format.html { redirect_to calendarevents_url, notice: "Calendarevent was successfully destroyed." }
+      format.html { redirect_to calendarevents_url, notice: 'Calendarevent was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_calendarevent
-      @calendarevent = Calendarevent.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def calendarevent_params
-      params.require(:calendarevent).permit(:name, :description, :start_time, :end_time)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_calendarevent
+    @calendarevent = Calendarevent.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def calendarevent_params
+    params.require(:calendarevent).permit(:name, :description, :start_time, :end_time)
+  end
 end
