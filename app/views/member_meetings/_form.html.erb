@@ -1,0 +1,27 @@
+<%= form_with(model: member_meeting) do |form| %>
+  <% if member_meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(member_meeting.errors.count, "error") %> prohibited this member_meeting from being saved:</h2>
+
+      <ul>
+        <% member_meeting.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= form.label :member_id %>
+  <%= form.select :member_id, Member.order(:last).map { |member| [member.last + ', ' + member.first, member.id] }, include_blank: true, id: "id_of_the_member_id_select_box" %>
+  </div>
+
+  <div class="field">
+  <%= form.label :meeeting_id %>
+  <%= form.select :meeting_id, Meeting.order(:name).map { |meeting| [meeting.name, meeting.id] }, include_blank: true, id: "id_of_the_meeting_id_select_box" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

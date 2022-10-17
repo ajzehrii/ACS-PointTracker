@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Member Meetings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Meeting</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @member_meetings.each do |member_meeting| %>
+      <tr>
+        <td><%= Member.where(id: member_meeting.member_id).last.first %> <%= Member.where(id: member_meeting.member_id).last.last  %></td>
+        <td><%= Meeting.where(id: member_meeting.meeting_id).last.name  %></td>
+        <td><%= link_to 'Show', member_meeting %></td>
+        <td><%= link_to 'Edit', edit_member_meeting_path(member_meeting) %></td>
+        <td><%= link_to 'Destroy', member_meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Member Meeting', new_member_meeting_path %>
