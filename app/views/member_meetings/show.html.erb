@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member:</strong>
+  <%= Member.where(id: @member_meeting.member_id).last.first %> <%= Member.where(id: @member_meeting.member_id).last.last  %>
+</p>
+
+<p>
+  <strong>Meeting:</strong>
+  <%= Meeting.where(id: @member_meeting.meeting_id).last.name %>
+</p>
+
+<%= link_to 'Edit', edit_member_meeting_path(@member_meeting) %> |
+<%= link_to 'Back', member_meetings_path %>

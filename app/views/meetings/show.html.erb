@@ -20,5 +20,26 @@
   <%= @meeting.description %>
 </p>
 
+<p>
+  <strong>Points:</strong>
+  <%= @meeting.pointval %>
+</p>
+
+<p>
+Meeting Attendees <br>
+<% total_attendees = 0 %>
+  <table>
+  <tr> <td>Name</td> </tr>
+    <% @meeting.member_meetings.each do  |membermeeting| %>
+      <tr> 
+        <td><%= Member.where(id: membermeeting.member_id).last.first  %>  <%= Member.where(id: membermeeting.member_id).last.last  %> </td>
+      </tr> 
+      <% total_attendees += 1 %>
+  <%end%>
+  </table> 
+ Total Attendees:  <%= total_attendees %>
+</p>
+
+
 <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
 <%= link_to 'Back', meetings_path %>

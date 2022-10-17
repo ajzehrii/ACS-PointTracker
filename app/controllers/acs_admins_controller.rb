@@ -1,5 +1,5 @@
 class AcsAdminsController < ApplicationController
-  before_action :set_acs_admin, only: %i[ show edit update destroy ]
+  before_action :set_acs_admin, only: %i[show edit update destroy]
 
   # GET /acs_admins or /acs_admins.json
   def index
@@ -7,8 +7,7 @@ class AcsAdminsController < ApplicationController
   end
 
   # GET /acs_admins/1 or /acs_admins/1.json
-  def show
-  end
+  def show; end
 
   # GET /acs_admins/new
   def new
@@ -16,8 +15,7 @@ class AcsAdminsController < ApplicationController
   end
 
   # GET /acs_admins/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /acs_admins or /acs_admins.json
   def create
@@ -25,7 +23,7 @@ class AcsAdminsController < ApplicationController
 
     respond_to do |format|
       if @acs_admin.save
-        format.html { redirect_to acs_admin_url(@acs_admin), notice: "Acs admin was successfully created." }
+        format.html { redirect_to acs_admin_url(@acs_admin), notice: 'Acs admin was successfully created.' }
         format.json { render :show, status: :created, location: @acs_admin }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class AcsAdminsController < ApplicationController
   def update
     respond_to do |format|
       if @acs_admin.update(acs_admin_params)
-        format.html { redirect_to acs_admin_url(@acs_admin), notice: "Acs admin was successfully updated." }
+        format.html { redirect_to acs_admin_url(@acs_admin), notice: 'Acs admin was successfully updated.' }
         format.json { render :show, status: :ok, location: @acs_admin }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class AcsAdminsController < ApplicationController
     @acs_admin.destroy
 
     respond_to do |format|
-      format.html { redirect_to acs_admins_url, notice: "Acs admin was successfully destroyed." }
+      format.html { redirect_to acs_admins_url, notice: 'Acs admin was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_acs_admin
-      @acs_admin = AcsAdmin.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def acs_admin_params
-      params.require(:acs_admin).permit(:admin_ID, :student_ID, :username, :password, :position)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_acs_admin
+    @acs_admin = AcsAdmin.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def acs_admin_params
+    params.require(:acs_admin).permit(:admin_ID, :student_ID, :username, :password, :position)
+  end
 end
