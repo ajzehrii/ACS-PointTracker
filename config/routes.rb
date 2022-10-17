@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :member_meetings
+  resources :calendarevents
   get"home", to: "pages#home"
   get"about", to: "pages#about"
   get"officer-team", to: "pages#officer-team"

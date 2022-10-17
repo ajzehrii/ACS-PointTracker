@@ -21,3 +21,13 @@
     background-color: #ffffff;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+}
+
+#wrapper{
+    min-height:100%;
+    position:relative;
+}

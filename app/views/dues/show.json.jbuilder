@@ -1,1 +1,1 @@
-json.partial! "dues/due", due: @due
+json.partial! 'dues/due', due: @due

@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_10_16_173914) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +32,15 @@ ActiveRecord::Schema.define(version: 2022_10_16_173914) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "pointval"
+  end
+
+  create_table "calendarevents", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "dues", force: :cascade do |t|

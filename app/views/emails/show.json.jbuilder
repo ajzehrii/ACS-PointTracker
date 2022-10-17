@@ -1,1 +1,1 @@
-json.partial! "emails/email", email: @email
+json.partial! 'emails/email', email: @email
