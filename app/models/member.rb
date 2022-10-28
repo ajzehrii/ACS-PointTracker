@@ -1,4 +1,5 @@
 class Member < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :omniauthable, :database_authenticatable, :registerable,
@@ -15,4 +16,7 @@ class Member < ApplicationRecord
       # user.skip_confirmation!
     end
   end
+  has_many :meetings, through: :member_meetings
+  has_many :member_meetings
+
 end

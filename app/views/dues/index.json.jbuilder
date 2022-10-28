@@ -1,1 +1,1 @@
-json.array! @dues, partial: "dues/due", as: :due
+json.array! @dues, partial: 'dues/due', as: :due

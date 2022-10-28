@@ -4,11 +4,16 @@ Rails.application.routes.draw do
     sessions: 'members/sessions',
     registrations: 'members/registrations'
   }
+  resources :member_meetings
+  resources :calendarevents
   get"home", to: "pages#home"
   get"about", to: "pages#about"
   get"officer-team", to: "pages#officer-team"
   get"general-meetings", to: "pages#general-meetings"
   get"admin", to: "pages#admin"
+  get"outreach", to: "pages#outreach"
+  get"social-events", to: "pages#social-events"
+  get"career-development", to: "pages#career-development"
   get"login", to: "login#index"
 
   resources :members
@@ -24,3 +29,4 @@ Rails.application.routes.draw do
   root 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+

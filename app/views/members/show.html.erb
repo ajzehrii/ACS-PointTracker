@@ -1,3 +1,9 @@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js" integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -6,13 +12,27 @@
 </p>
 
 <p>
-  <strong>First:</strong>
+  <strong>Name:</strong>
+
   <%= @member.first %>
+  <%= @member.last %>
 </p>
 
 <p>
-  <strong>Last:</strong>
-  <%= @member.last %>
+Member Meetings <br>
+<% total_points = 0 %>
+  <table>
+  <tr> <td> Point Value </td><td>Earned Date</td><td>Reason</td> </tr>
+    <% @member.member_meetings.each do  |membermeeting| %>
+      <tr> 
+        <td><%= Meeting.where(id: membermeeting.meeting_id).last.pointval  %> </td>
+        <td><%= membermeeting.created_at %> </td>
+        <td><%= Meeting.where(id: membermeeting.meeting_id).last.name %> </td>
+      </tr> 
+      <% total_points += Meeting.where(id: membermeeting.meeting_id).last.pointval %>
+  <%end%>
+  </table> 
+ Total Points Earned:  <%= total_points %>
 </p>
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
