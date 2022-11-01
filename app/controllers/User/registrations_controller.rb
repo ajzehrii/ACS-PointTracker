@@ -4,15 +4,25 @@ class User::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first, :last, :student_id,:email, :password])
+    devise_parameter_sanitizer.permit(:account_update, keys: [ :email, :password, :current_password])
+  end
+
+  def sign_up_params
+    params.require(:user).permit(:first, :last, :student_id,:email, :password, :password_confirmation)
+   end
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
   #GET /resource/adminedit
   def adminedit

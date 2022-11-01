@@ -5,6 +5,10 @@ class DuesController < ApplicationController
   def index
     @dues = Due.all
   end
+  def admin
+    @dues = Due.all
+    @users = User.all
+  end
 
   # GET /dues/1 or /dues/1.json
   def show; end
@@ -55,6 +59,13 @@ class DuesController < ApplicationController
     end
   end
 
+  def remove_all
+    Due.delete_all
+    respond_to do |format|
+      format.html { redirect_to admin_dues_path, notice: 'You have removed all dues!' }
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -64,6 +75,6 @@ class DuesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def due_params
-    params.require(:due).permit(:semester_ID, :student_ID, :paid, :ammount)
+    params.permit(:student_ID, :paid)
   end
 end

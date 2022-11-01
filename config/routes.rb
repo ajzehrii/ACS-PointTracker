@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "user/registrations" }
   resources :member_meetings
   resources :calendarevents
   get"home", to: "pages#home"
@@ -16,6 +16,14 @@ Rails.application.routes.draw do
   get"admin/members", to: "members#admin"
   get"admin/admins", to: "acs_admins#admin"
   get"admin/calendar", to: "calendarevents#admin"
+  get"admin/dues", to: "dues#admin"
+  post"admin/dues", to: "dues#create"
+
+  resources :dues do
+    collection do
+      get 'remove_all'
+    end
+  end
 
 
   devise_scope :user do
@@ -23,6 +31,8 @@ Rails.application.routes.draw do
     get "signup" => "devise/registrations#new"
     get "logout" => "devise/sessions#destroy"
   end
+
+  
 
   resources :members
   resources :acs_admins
