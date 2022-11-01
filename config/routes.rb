@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :member_meetings
   resources :calendarevents
   get"home", to: "pages#home"
@@ -15,6 +16,14 @@ Rails.application.routes.draw do
   get"admin/members", to: "members#admin"
   get"admin/admins", to: "acs_admins#admin"
   get"admin/calendar", to: "calendarevents#admin"
+
+
+  devise_scope :user do
+    get "login" => "devise/sessions#new"
+    get "signup" => "devise/registrations#new"
+    get "logout" => "devise/sessions#destroy"
+    get "admin/useredit" => "devise/registrations#adminedit", :as => 'admin_edit'
+  end
 
   resources :members
   resources :acs_admins

@@ -7,6 +7,7 @@ class MembersController < ApplicationController
   end
   def admin
     @members = Member.all
+    @users = User.all
   end
 
   # GET /members/1 or /members/1.json

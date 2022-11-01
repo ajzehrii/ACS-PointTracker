@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'simple_calendar', '~> 2.4', '>= 2.4.3'
 
+gem'devise'
 # robocop
 gem 'rubocop'
 gem 'rubocop-rails'

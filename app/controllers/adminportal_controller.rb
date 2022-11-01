@@ -5,9 +5,9 @@ class AdminportalController < ApplicationController
 
   
   # GET /calendarevents or /calendarevents.json
-  def admin
-    @calendarevents = Calendarevent.all
-  end
+
+
+
 
 
   
