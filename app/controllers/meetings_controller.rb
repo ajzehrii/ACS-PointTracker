@@ -8,6 +8,16 @@ class MeetingsController < ApplicationController
   end
   def admin
     @meetings = Meeting.all
+        # limits access to admins only
+    authenticate_user!
+
+    # if current user is an admin, continue to page
+    if current_user.admin
+        return
+    #else return to login page 
+    else 
+        redirect_to login_path
+    end
   end
 
 

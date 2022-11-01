@@ -8,6 +8,16 @@ class MembersController < ApplicationController
   def admin
     @members = Member.all
     @users = User.all
+        # limits access to admins only
+    authenticate_user!
+
+    # if current user is an admin, continue to page
+    if current_user.admin
+        return
+    #else return to login page 
+    else 
+        redirect_to login_path
+    end
   end
 
   # GET /members/1 or /members/1.json

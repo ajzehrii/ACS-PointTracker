@@ -22,7 +22,6 @@ Rails.application.routes.draw do
     get "login" => "devise/sessions#new"
     get "signup" => "devise/registrations#new"
     get "logout" => "devise/sessions#destroy"
-    get "admin/useredit" => "devise/registrations#adminedit", :as => 'admin_edit'
   end
 
   resources :members
