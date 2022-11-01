@@ -7,6 +7,7 @@ class AcsAdminsController < ApplicationController
   end
   def admin
     @acs_admins = AcsAdmin.all
+    @users = User.all
   end
 
   # GET /acs_admins/1 or /acs_admins/1.json
