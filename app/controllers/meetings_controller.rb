@@ -6,6 +6,10 @@ class MeetingsController < ApplicationController
   def index
     @meetings = Meeting.all
   end
+  def admin
+    @meetings = Meeting.all
+  end
+
 
   # GET /meetings/1 or /meetings/1.json
   def show

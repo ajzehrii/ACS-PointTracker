@@ -5,10 +5,16 @@ Rails.application.routes.draw do
   get"about", to: "pages#about"
   get"officer-team", to: "pages#officer-team"
   get"general-meetings", to: "pages#general-meetings"
-  get"admin", to: "pages#admin"
   get"outreach", to: "pages#outreach"
   get"social-events", to: "pages#social-events"
   get"career-development", to: "pages#career-development"
+
+  get"admin", to: "adminportal#admin"
+  get"admin/emails", to: "emails#admin"
+  get"admin/meetings", to: "meetings#admin"
+  get"admin/members", to: "members#admin"
+  get"admin/admins", to: "acs_admins#admin"
+  get"admin/calendar", to: "calendarevents#admin"
 
   resources :members
   resources :acs_admins

@@ -5,6 +5,9 @@ class MembersController < ApplicationController
   def index
     @members = Member.all
   end
+  def admin
+    @members = Member.all
+  end
 
   # GET /members/1 or /members/1.json
   def show; end

@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_16_173914) do
-
+ActiveRecord::Schema.define(version: 2022_10_17_204325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,19 +70,6 @@ ActiveRecord::Schema.define(version: 2022_10_16_173914) do
   create_table "member_meetings", force: :cascade do |t|
     t.integer "member_id"
     t.integer "meeting_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "member_points", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "point_val"
-    t.integer "reason_code"
-    t.string "reason_des"
-    t.integer "admin_id"
-    t.integer "event_id"
-    t.integer "attendance_id"
-    t.integer "dues_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

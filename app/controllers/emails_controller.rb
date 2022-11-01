@@ -5,6 +5,10 @@ class EmailsController < ApplicationController
   def index
     @emails = Email.all
   end
+  def admin
+    @emails = Email.all
+  end
+  
 
   # GET /emails/1 or /emails/1.json
   def show; end

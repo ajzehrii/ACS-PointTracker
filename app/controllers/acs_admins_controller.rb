@@ -5,6 +5,9 @@ class AcsAdminsController < ApplicationController
   def index
     @acs_admins = AcsAdmin.all
   end
+  def admin
+    @acs_admins = AcsAdmin.all
+  end
 
   # GET /acs_admins/1 or /acs_admins/1.json
   def show; end

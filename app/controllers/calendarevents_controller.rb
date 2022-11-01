@@ -5,6 +5,10 @@ class CalendareventsController < ApplicationController
   def index
     @calendarevents = Calendarevent.all
   end
+  def admin
+    @calendarevents = Calendarevent.all
+  end
+  
 
   # GET /calendarevents/1 or /calendarevents/1.json
   def show; end
