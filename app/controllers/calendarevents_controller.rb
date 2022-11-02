@@ -21,6 +21,10 @@ class CalendareventsController < ApplicationController
       end
     end
   end
+
+  def member
+    @calendarevents = Calendarevent.all
+  end
   
 
   # GET /calendarevents/1 or /calendarevents/1.json
@@ -29,10 +33,38 @@ class CalendareventsController < ApplicationController
   # GET /calendarevents/new
   def new
     @calendarevent = Calendarevent.new
+    respond_to do |format|
+      # limits access to admins only
+      authenticate_user!
+
+      # if current user is an admin, continue to page
+      if current_user.admin
+        return
+      #else return to login page 
+      else 
+          format.html { redirect_to login_path, notice: 'You do not have access this page' }
+          format.json { head :no_content }
+      end
+    end
   end
 
   # GET /calendarevents/1/edit
-  def edit; end
+  def edit
+    @calendarevent = Calendarevent.new
+    respond_to do |format|
+      # limits access to admins only
+      authenticate_user!
+
+      # if current user is an admin, continue to page
+      if current_user.admin
+        return
+      #else return to login page 
+      else 
+          format.html { redirect_to login_path, notice: 'You do not have access this page' }
+          format.json { head :no_content }
+      end
+    end
+  end
 
   # POST /calendarevents or /calendarevents.json
   def create
@@ -65,7 +97,7 @@ class CalendareventsController < ApplicationController
   # DELETE /calendarevents/1 or /calendarevents/1.json
   def destroy
     @calendarevent.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to calendarevents_url, notice: 'Calendarevent was successfully destroyed.' }
       format.json { head :no_content }

@@ -3,9 +3,7 @@ class AdminportalController < ApplicationController
     render template: "Adminportal/#{params[:page]}"
   end
 
-  
   # GET /calendarevents or /calendarevents.json
-
 
   def admin
     respond_to do |format|
@@ -21,9 +19,5 @@ class AdminportalController < ApplicationController
           format.json { head :no_content }
       end
     end
-    
   end
-
-
-  
 end
