@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get"social-events", to: "pages#social-events"
   get"career-development", to: "pages#career-development"
 
+  get"member", to: "memberportal#member"
+
   get"admin", to: "adminportal#admin"
   get"admin/emails", to: "emails#admin"
   get"admin/meetings", to: "meetings#admin"

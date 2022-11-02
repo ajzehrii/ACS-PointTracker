@@ -16,7 +16,7 @@ class AdminportalController < ApplicationController
        return
     #else return to login page 
     else 
-       redirect_to login_path
+      redirect_to login_path
     end
     
   end
