@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "user/registrations" }
+  resources :users
   resources :member_meetings
   resources :calendarevents
   get"home", to: "pages#home"

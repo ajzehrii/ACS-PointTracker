@@ -49,9 +49,8 @@
         <td><%= user.first %></td>
         <td><%= user.email %></td>
         <td><%= user.student_id %></td>
-        <td><%= user.dues %></td>
         <td><%= user.admin %></td>
-        <td><%= link_to 'Edit', edit_user_registration_path(user) %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>

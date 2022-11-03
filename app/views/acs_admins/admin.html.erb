@@ -48,11 +48,14 @@
       <td><%= user.first %></td>
       <td><%= user.email %></td>
       <td><%= user.student_id %></td>
-      <td><%= form_for(user, as: user, url: registration_path(user), html: { method: :put }) do |f| %>
-        <div class="field">
+      <%= form_for(user, as: user, url: registration_path(user), html: { method: :put }) do |f| %>
+        <td><div class="field">
         <%= f.check_box :admin %>
-        </div>
-      <% end %></td>
+        </div></td><td>
+        <div class="actions">
+          <%= f.submit "Update" %>
+        </div></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
