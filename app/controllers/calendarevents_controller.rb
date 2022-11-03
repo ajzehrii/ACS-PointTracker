@@ -7,15 +7,18 @@ class CalendareventsController < ApplicationController
   end
   def admin
     @calendarevents = Calendarevent.all
-    # limits access to admins only
-    authenticate_user!
+    respond_to do |format|
+      # limits access to admins only
+      authenticate_user!
 
-    # if current user is an admin, continue to page
-    if current_user.admin
-        return
-    #else return to login page 
-    else 
-        redirect_to login_path
+      # if current user is an admin, continue to page
+      if current_user.admin
+          return
+      #else return to login page 
+      else 
+          format.html { redirect_to login_path, notice: 'You do not have access this page' }
+          format.json { head :no_content }
+      end
     end
   end
   

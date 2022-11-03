@@ -48,13 +48,15 @@
       <td><%= user.first %></td>
       <td><%= user.email %></td>
       <td><%= user.student_id %></td>
-      <%= form_for(user, as: user, url: registration_path(user), html: { method: :put }) do |f| %>
-        <td><div class="field">
-        <%= f.check_box :admin %>
-        </div></td><td>
-        <div class="actions">
-          <%= f.submit "Update" %>
-        </div></td>
+      <%if user.email != "adm@n" %>
+        <%= form_for(user) do |f| %>
+          <td><div class="field">
+          <%= f.check_box :admin %>
+          </div></td><td>
+          <div class="actions">
+            <%= f.submit "Update" %>
+          </div></td>
+        <% end %>
       <% end %>
     </tr>
   <% end %>
