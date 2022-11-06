@@ -3,7 +3,11 @@ class MembersController < ApplicationController
 
   # GET /members or /members.json
   def index
-    @members = Member.all
+    #@members = Member.all
+    @members = Member.search(params[:search])
+    if @members.count == 1
+      redirect_to action: 'show',id: @members[0].id
+    end
   end
   def admin
     @members = Member.all
@@ -82,6 +86,6 @@ class MembersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def member_params
-    params.require(:member).permit(:student_ID, :first, :last)
+    params.require(:member).permit(:student_ID, :first, :last, :search)
   end
 end
