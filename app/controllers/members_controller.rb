@@ -8,6 +8,7 @@ class MembersController < ApplicationController
   def admin
     @members = Member.all
     @users = User.all
+    @attendances = Attendance.all
         # limits access to admins only
     respond_to do |format|
       # limits access to admins only

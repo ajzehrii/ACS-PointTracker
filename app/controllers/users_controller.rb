@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
     #ignore this
 
+    def profile
+        @attendances = Attendance.all
+        @meetings = Meeting.all
+        @users = User.all
+    end
+
     def edit
         
         @user = User.find(params[:id])

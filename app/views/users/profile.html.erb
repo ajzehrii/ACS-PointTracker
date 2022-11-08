@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js" integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+  <h5 class="card-header">Profile : <%= current_user.student_id%></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= current_user.first%> <%= current_user.last%></h5> 
+    <% n  = 0 %>
+    <p class="card-text">Meetings Attended : </p>
+    <% @attendances.each do |attendance| %>
+        <% if attendance.student_ID == current_user.student_id %>
+            <% n  = n+1 %>
+            <% @meetings.each do |meeting| %>
+                <% if attendance.meeting_ID == meeting.meeting_ID %>
+                    <p><%= meeting.date %> | <%= meeting.name %> : <%= meeting.description %> </p>
+                <% end %>  
+            <% end %>  
+        <% end %>  
+    <% end %>
+    <p class="card-text">Points :  <%= n %></p>
+
+    <%= link_to 'Edit Profile',  edit_user_registration_path(current_user) %>
+  </div>
+</div>

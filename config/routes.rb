@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   get"admin/dues", to: "dues#admin"
   post"admin/dues", to: "dues#create"
 
+  get"m/profile", to: "users#profile"
+  get"m/attendance", to: "meetings#m"
+  post"m/attendance", to: "attendances#create"
+  
   resources :dues do
     collection do
       get 'remove_all'

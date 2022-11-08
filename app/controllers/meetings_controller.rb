@@ -23,9 +23,17 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def m 
+    @meetings = Meeting.all
+    @attendances = Attendance.all
+      authenticate_user!
+  end
 
   # GET /meetings/1 or /meetings/1.json
   def show
+    @meetings = Meeting.all
+    @attendances = Attendance.all
+    @users= User.all
   end
 
   # GET /meetings/new
@@ -56,7 +64,7 @@ class MeetingsController < ApplicationController
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to meeting_url(@meeting), notice: "Meeting was successfully updated." }
+        format.html { redirect_to admin_meetings_path, notice: "Meeting was successfully updated." }
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -83,6 +91,6 @@ class MeetingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meeting_params
-      params.require(:meeting).permit(:meeting_ID, :date, :name, :description, :pointval)
+      params.require(:meeting).permit(:meeting_ID, :date, :name, :description, :pointval, :active)
     end
 end
