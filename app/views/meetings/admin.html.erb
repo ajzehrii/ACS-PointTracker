@@ -33,7 +33,6 @@
 <table>
   <thead>
     <tr>
-      <th>Meeting id</th>
       <th>Date</th>
       <th>Name</th>
       <th>Description</th>
@@ -45,7 +44,6 @@
   <tbody>
     <% @meetings.each do |meeting| %>
       <tr>
-        <td><%= meeting.meeting_ID %></td>
         <td><%= meeting.date %></td>
         <td><%= meeting.name %></td>
         <td><%= meeting.description %></td>

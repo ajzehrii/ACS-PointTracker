@@ -11,9 +11,22 @@
     </div>
   <% end %>
 
+
+
+  <% max = 1%>
+  <% count = 1%>
+  <% while count != 0 %>
+    <% @meetings.each do  |meeting| %>
+      <%count = 0 %>
+      <% if meeting.meeting_ID == max %>
+        <% max = max+1%>
+        <%count = 1 %>
+      <% end %>
+    <% end %>
+  <% end %>
+
   <div class="field">
-    <%= form.label :meeting_ID %>
-    <%= form.number_field :meeting_ID %>
+    <%= form.hidden_field :meeting_ID, :value => max  %>
   </div>
 
   <div class="field">

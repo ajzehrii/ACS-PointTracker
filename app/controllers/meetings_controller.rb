@@ -38,15 +38,18 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
+    @meetings = Meeting.all
     @meeting = Meeting.new
   end
 
   # GET /meetings/1/edit
   def edit
+    @meetings = Meeting.alls
   end
 
   # POST /meetings or /meetings.json
   def create
+    @meetings = Meeting.all
     @meeting = Meeting.new(meeting_params)
 
     respond_to do |format|
