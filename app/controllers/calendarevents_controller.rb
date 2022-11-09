@@ -4,6 +4,19 @@ class CalendareventsController < ApplicationController
   # GET /calendarevents or /calendarevents.json
   def index
     @calendarevents = Calendarevent.all
+    respond_to do |format|
+      # limits access to admins only
+      authenticate_user!
+
+      # if current user is an admin, continue to page
+      if current_user.admin
+          return
+      #else return to login page 
+      else 
+          format.html { redirect_to login_path, notice: 'You do not have access this page' }
+          format.json { head :no_content }
+      end
+    end
   end
   def admin
     @calendarevents = Calendarevent.all
@@ -109,6 +122,19 @@ class CalendareventsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_calendarevent
     @calendarevent = Calendarevent.find(params[:id])
+    respond_to do |format|
+      # limits access to admins only
+      authenticate_user!
+
+      # if current user is an admin, continue to page
+      if current_user.admin
+        return
+      #else return to login page 
+      else 
+          format.html { redirect_to login_path, notice: 'You do not have access this page' }
+          format.json { head :no_content }
+      end
+    end
   end
 
   # Only allow a list of trusted parameters through.

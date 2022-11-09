@@ -23,6 +23,12 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def member
+    @meetings = Meeting.all
+    @attendances = Attendance.all
+      authenticate_user!
+  end
+
   def m 
     @meetings = Meeting.all
     @attendances = Attendance.all

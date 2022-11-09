@@ -17,13 +17,14 @@
   </div>
   <span class="navbar-text">
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item ">
-        <a class="nav-link" href="../member">Back<span class="sr-only">(current)</span></a>
+    <li class="nav-item ">
         <a class="nav-link" href="../home">Home<span class="sr-only">(current)</span></a>
-      </li>
-  </span>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link" href="../logout">Logout<span class="sr-only">(current)</span></a>
+    </li>
+</span>
 </nav>
-
 
 <center>
 
@@ -49,14 +50,10 @@
         <td><%= calendarevent.description %></td>
         <td><%= calendarevent.start_time %></td>
         <td><%= calendarevent.end_time %></td>
-        <td><%= link_to 'Show', calendarevent %></td>
-        <td><%= link_to 'Edit', edit_calendarevent_path(calendarevent) %></td>
-        <td><%= link_to 'Destroy', calendarevent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 
 <%= month_calendar(events: @calendarevents) do |date, calendarevents| %>
         <div class="day">    
@@ -71,9 +68,7 @@
             </div>
             <% end %>
         <% end %>
-
 <br>
-
 
 </div>
 

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get"member", to: "memberportal#member"
   get"member/calendar", to: "calendarevents#member"
   get"member/meetings", to: "meetings#member"
+  get"member/points", to: "points#member"
 
   get"admin", to: "adminportal#admin"
   get"admin/emails", to: "emails#admin"
