@@ -7,6 +7,7 @@ class CalendareventsController < ApplicationController
   end
   def admin
     @calendarevents = Calendarevent.all
+    @meetings = Meeting.all
     respond_to do |format|
       # limits access to admins only
       authenticate_user!
