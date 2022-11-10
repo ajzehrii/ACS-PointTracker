@@ -11,14 +11,38 @@
     </div>
   <% end %>
 
+  <% max = 0%>        
+  <% if Meeting.count != 0 %>
+    <% max = 1%>
+    <% count = 1%>
+    <% while count != 0 %>
+      <% @meetings.each do  |meeting| %>
+        <%count = 0 %>
+        <% if meeting.meeting_ID == max %>
+          <% max = max+1%>
+          <%count = 1 %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
   <div class="field">
-    <%= form.label :meeting_ID %>
-    <%= form.number_field :meeting_ID %>
+    <%= form.hidden_field :meeting_ID, :value => max  %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
     <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hour %>
+    <%= form.select :hour , options_for_select([1, 2, 3, 4, 5, 6,7,8,9,10,11,12])%>
+    <%= form.label :minute %>
+    <%= form.select  :minute, options_for_select([0,1,2,3,4,5,6,7,8,9,10, 11, 12, 13, 14, 15, 16, 17, 18, 19,20, 21, 22, 23, 24, 25, 26, 27, 28, 29,30, 31, 32, 33, 34, 35, 36, 37, 38, 39,40, 41, 42, 43, 44, 45, 46, 47, 48, 49,50, 51, 52, 53, 54, 55, 56, 57, 58, 59]) %>
+    <%= form.label :format %>
+    <%= form.select :format, options_for_select(["AM", "PM"])%>
   </div>
 
   <div class="field">
@@ -29,11 +53,6 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pointval %>
-    <%= form.number_field :pointval %>
   </div>
 
   <div class="actions">

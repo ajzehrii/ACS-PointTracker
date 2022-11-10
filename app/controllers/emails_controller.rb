@@ -64,7 +64,7 @@ class EmailsController < ApplicationController
     @email.destroy
 
     respond_to do |format|
-      format.html { redirect_to emails_url, notice: 'Email was successfully destroyed.' }
+      format.html { redirect_to admin_emails_url, notice: 'Email was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

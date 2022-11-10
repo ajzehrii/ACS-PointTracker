@@ -23,7 +23,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to attendance_url(@attendance), notice: 'Attendance was successfully created.' }
+        format.html { redirect_back fallback_location: root_path, notice: 'Successfully checked into event!' }
         format.json { render :show, status: :created, location: @attendance }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +36,7 @@ class AttendancesController < ApplicationController
   def update
     respond_to do |format|
       if @attendance.update(attendance_params)
-        format.html { redirect_to attendance_url(@attendance), notice: 'Attendance was successfully updated.' }
+        format.html { redirect_back fallback_location: root_path, notice: 'Attendance was successfully updated.' }
         format.json { render :show, status: :ok, location: @attendance }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class AttendancesController < ApplicationController
     @attendance.destroy
 
     respond_to do |format|
-      format.html { redirect_to attendances_url, notice: 'Attendance was successfully destroyed.' }
+      format.html { redirect_back fallback_location: root_path, notice: 'Attendance was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,6 +64,6 @@ class AttendancesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def attendance_params
-    params.require(:attendance).permit(:meeting_ID, :student_ID)
+    params.permit(:meeting_ID, :student_ID)
   end
 end

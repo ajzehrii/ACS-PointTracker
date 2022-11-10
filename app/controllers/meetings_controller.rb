@@ -8,39 +8,61 @@ class MeetingsController < ApplicationController
   end
   def admin
     @meetings = Meeting.all
-        # limits access to admins only
-    authenticate_user!
+    respond_to do |format|
+      # limits access to admins only
+      authenticate_user!
 
-    # if current user is an admin, continue to page
-    if current_user.admin
-        return
-    #else return to login page 
-    else 
-        redirect_to login_path
+      # if current user is an admin, continue to page
+      if current_user.admin
+          return
+      #else return to login page 
+      else 
+          format.html { redirect_to login_path, notice: 'You do not have access this page' }
+          format.json { head :no_content }
+      end
     end
   end
 
+  def member
+    @meetings = Meeting.all
+    @attendances = Attendance.all
+      authenticate_user!
+  end
+
+  def m 
+    @meetings = Meeting.all
+    @attendances = Attendance.all
+      authenticate_user!
+  end
 
   # GET /meetings/1 or /meetings/1.json
   def show
+    @meetings = Meeting.all
+    @attendances = Attendance.all
+    @users= User.all
   end
 
   # GET /meetings/new
   def new
+    @meetings = Meeting.all
     @meeting = Meeting.new
   end
 
   # GET /meetings/1/edit
   def edit
+    @meetings = Meeting.all
   end
 
   # POST /meetings or /meetings.json
   def create
+    @meetings = Meeting.all
     @meeting = Meeting.new(meeting_params)
+    @meeting.start_time = @meeting.date
+    @meeting.end_time = @meeting.date
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to meeting_url(@meeting), notice: "Meeting was successfully created." }
+        format.html { redirect_to admin_path, notice: "Meeting was successfully created." }
         format.json { render :show, status: :created, location: @meeting }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -53,7 +75,7 @@ class MeetingsController < ApplicationController
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to meeting_url(@meeting), notice: "Meeting was successfully updated." }
+        format.html { redirect_to admin_path, notice: "Meeting was successfully updated." }
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,7 +89,7 @@ class MeetingsController < ApplicationController
     @meeting.destroy
 
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: "Meeting was successfully destroyed." }
+      format.html { redirect_back fallback_location: root_path, notice: "Meeting was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -80,6 +102,6 @@ class MeetingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meeting_params
-      params.require(:meeting).permit(:meeting_ID, :date, :name, :description, :pointval)
+      params.require(:meeting).permit(:meeting_ID, :date, :name, :description, :pointval, :active, :hour, :minute, :format)
     end
 end

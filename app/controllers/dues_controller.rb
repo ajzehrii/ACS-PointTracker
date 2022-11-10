@@ -27,7 +27,7 @@ class DuesController < ApplicationController
 
     respond_to do |format|
       if @due.save
-        format.html { redirect_to due_url(@due), notice: 'Due was successfully created.' }
+        format.html { redirect_to admin_dues_path, notice: 'Due was successfully updated.' }
         format.json { render :show, status: :created, location: @due }
       else
         format.html { render :new, status: :unprocessable_entity }

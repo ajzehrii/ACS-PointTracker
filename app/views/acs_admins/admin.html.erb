@@ -17,9 +17,12 @@
   </div>
   <span class="navbar-text">
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item ">
-        <a class="nav-link" href="../admin">Back<span class="sr-only">(current)</span></a>
-      </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="../home">Home<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="../logout">Logout<span class="sr-only">(current)</span></a>
+    </li>
   </span>
 </nav>
 
@@ -48,11 +51,16 @@
       <td><%= user.first %></td>
       <td><%= user.email %></td>
       <td><%= user.student_id %></td>
-      <td><%= form_for(user, as: user, url: registration_path(user), html: { method: :put }) do |f| %>
-        <div class="field">
-        <%= f.check_box :admin %>
-        </div>
-      <% end %></td>
+      <%if user.email != "adm@n" %>
+        <%= form_for(user) do |f| %>
+          <td><div class="field">
+          <%= f.check_box :admin %>
+          </div></td><td>
+          <div class="actions">
+            <%= f.submit "Update" %>
+          </div></td>
+        <% end %>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

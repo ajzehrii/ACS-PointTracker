@@ -17,9 +17,12 @@
   </div>
   <span class="navbar-text">
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item ">
-        <a class="nav-link" href="../admin">Back<span class="sr-only">(current)</span></a>
-      </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="../home">Home<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="../logout">Logout<span class="sr-only">(current)</span></a>
+    </li>
   </span>
 </nav>
 
@@ -33,11 +36,11 @@
 <table>
   <thead>
     <tr>
-      <th>Meeting id</th>
       <th>Date</th>
+      <th>Time</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Points</th>
+      <th>Active</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -45,14 +48,28 @@
   <tbody>
     <% @meetings.each do |meeting| %>
       <tr>
-        <td><%= meeting.meeting_ID %></td>
         <td><%= meeting.date %></td>
+        <td><%= meeting.hour %>:<%= meeting.minute %> <%= meeting.format %></td>
         <td><%= meeting.name %></td>
         <td><%= meeting.description %></td>
-        <td><%= meeting.pointval %></td>
+        <td><%= form_with(model: meeting) do |form| %>
+
+          <div class="field">
+            <%= form.check_box :active %>
+          </div>
+          </td>
+          <td>
+          <div class="actions">
+            <%= form.submit "update" %>
+          </div>
+          </td>
+        <% end %>
+
+
         <td><%= link_to 'Show', meeting %></td>
         <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
         <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>

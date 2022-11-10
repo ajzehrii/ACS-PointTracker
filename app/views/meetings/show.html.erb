@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Meeting id:</strong>
-  <%= @meeting.meeting_ID %>
-</p>
-
-<p>
   <strong>Date:</strong>
   <%= @meeting.date %>
 </p>
-
+<p>
+  <strong>Time:</strong>
+  <%= meeting.hour %>:<%= meeting.minute %> <%= meeting.format %>
+</p>
 <p>
   <strong>Name:</strong>
   <%= @meeting.name %>
@@ -21,25 +19,43 @@
 </p>
 
 <p>
-  <strong>Points:</strong>
-  <%= @meeting.pointval %>
-</p>
-
-<p>
-Meeting Attendees <br>
+<b>Meeting Attendees</b> <br>
 <% total_attendees = 0 %>
   <table>
-  <tr> <td>Name</td> </tr>
-    <% @meeting.member_meetings.each do  |membermeeting| %>
-      <tr> 
-        <td><%= Member.where(id: membermeeting.member_id).last.first  %>  <%= Member.where(id: membermeeting.member_id).last.last  %> </td>
-      </tr> 
-      <% total_attendees += 1 %>
-  <%end%>
+  <tr> <td></td> </tr>
+    <% @attendances.each do  |attendance| %>
+      <% if attendance.meeting_ID == @meeting.meeting_ID %>
+        <% @users.each do  |user| %>
+          <% if attendance.student_ID == user.student_id %>
+            <tr> 
+              <td> - <%= user.student_id %></td>  <td> | <%= user.first  %> <%= user.last  %></td> <td><%= link_to 'Remove', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>  
+              <% total_attendees += 1 %>
+            </tr> 
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   </table> 
- Total Attendees:  <%= total_attendees %>
+  <b>Total Attendees: </b> <% total_attendees%> 
+
+   <%= form_with(model: @attendance) do |form| %>
+    <th>
+    <div class="field">
+    <%= form.label :student_ID %>
+    <%= form.select :student_ID, User.order(:last).map { |user| [user.last + ', ' + user.first, user.student_id] }, include_blank: true %>
+    </div></th> <th>
+    <div class="field">
+      <%= form.hidden_field :meeting_ID, :value => @meeting.meeting_ID  %>
+    </div>
+    
+    <div class="actions">
+      <%= form.submit "Add Member" %>
+    </div>
+    </th> 
+<% end %> 
+
 </p>
 
 
 <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
-<%= link_to 'Back', meetings_path %>
+<%= link_to 'Back', admin_meetings_path %>

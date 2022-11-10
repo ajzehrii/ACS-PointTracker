@@ -8,6 +8,20 @@ class AcsAdminsController < ApplicationController
   def admin
     @acs_admins = AcsAdmin.all
     @users = User.all
+
+    respond_to do |format|
+      # limits access to admins only
+      authenticate_user!
+
+      # if current user is an admin, continue to page
+      if current_user.admin
+          return
+      #else return to login page 
+      else 
+          format.html { redirect_to login_path, notice: 'You do not have access this page' }
+          format.json { head :no_content }
+      end
+    end
   end
 
   # GET /acs_admins/1 or /acs_admins/1.json
