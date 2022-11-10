@@ -8,8 +8,9 @@ class MemberportalController < ApplicationController
 
 
   def member
-    # limits access to admins only
-    #authenticate_user!
-    # if current user is an admin, continue to page
+    @calendarevents = Calendarevent.all
+    @meetings = Meeting.all
+    @attendances = Attendance.all
+    authenticate_user!
   end
 end
