@@ -23,6 +23,12 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def member
+    @meetings = Meeting.all
+    @attendances = Attendance.all
+      authenticate_user!
+  end
+
   def m 
     @meetings = Meeting.all
     @attendances = Attendance.all
@@ -44,7 +50,7 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/1/edit
   def edit
-    @meetings = Meeting.alls
+    @meetings = Meeting.all
   end
 
   # POST /meetings or /meetings.json

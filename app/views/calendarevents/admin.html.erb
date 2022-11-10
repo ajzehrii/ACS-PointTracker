@@ -17,18 +17,20 @@
   </div>
   <span class="navbar-text">
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item ">
-        <a class="nav-link" href="../admin">Back<span class="sr-only">(current)</span></a>
-      </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="../home">Home<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="../logout">Logout<span class="sr-only">(current)</span></a>
+    </li>
   </span>
 </nav>
-
 
 <center>
 
 <p id="notice"><%= notice %></p>
 <div class="container">
-<h1>Calendarevents</h1>
+<h1>Calendar Events</h1>
 
 <table>
   <thead>
@@ -85,12 +87,10 @@
             <% end %>
         <% end %>
 
-    
-
 <br>
+
 
 <%= link_to 'New Meeting', new_meeting_path %>
 
 </div>
-
 </center>
