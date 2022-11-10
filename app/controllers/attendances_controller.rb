@@ -23,7 +23,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_back fallback_location: root_path, notice: 'Attendance was successfully created.' }
+        format.html { redirect_back fallback_location: root_path, notice: 'Successfully checked into event!' }
         format.json { render :show, status: :created, location: @attendance }
       else
         format.html { render :new, status: :unprocessable_entity }

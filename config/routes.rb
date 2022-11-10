@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get"social-events", to: "pages#social-events"
   get"career-development", to: "pages#career-development"
 
-  get"member", to: "memberportal#member"
+  get"portal", to: "memberportal#member"
+  post"portal", to: "attendances#create"
   get"member/calendar", to: "calendarevents#member"
   get"member/meetings", to: "meetings#member"
   get"member/points", to: "points#member"

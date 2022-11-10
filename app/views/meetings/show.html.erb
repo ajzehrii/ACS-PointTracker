@@ -4,7 +4,10 @@
   <strong>Date:</strong>
   <%= @meeting.date %>
 </p>
-
+<p>
+  <strong>Time:</strong>
+  <%= meeting.hour %>:<%= meeting.minute %> <%= meeting.format %>
+</p>
 <p>
   <strong>Name:</strong>
   <%= @meeting.name %>

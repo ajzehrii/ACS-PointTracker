@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
         if current_user.admin
             admin_path
         else 
-            member_path
+            portal_path
         end
     end
 end
