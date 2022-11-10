@@ -112,7 +112,7 @@ class CalendareventsController < ApplicationController
     @calendarevent.destroy
     
     respond_to do |format|
-      format.html { redirect_to calendarevents_url, notice: 'Calendarevent was successfully destroyed.' }
+      format.html { redirect_to admin_calendar_url, notice: 'Calendarevent was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

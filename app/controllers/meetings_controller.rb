@@ -50,7 +50,7 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/1/edit
   def edit
-    @meetings = Meeting.alls
+    @meetings = Meeting.all
   end
 
   # POST /meetings or /meetings.json
@@ -60,7 +60,7 @@ class MeetingsController < ApplicationController
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to meeting_url(@meeting), notice: "Meeting was successfully created." }
+        format.html { redirect_to admin_meetings_url, notice: "Meeting was successfully created." }
         format.json { render :show, status: :created, location: @meeting }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -87,7 +87,7 @@ class MeetingsController < ApplicationController
     @meeting.destroy
 
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: "Meeting was successfully destroyed." }
+      format.html { redirect_to admin_meetings_url, notice: "Meeting was successfully destroyed." }
       format.json { head :no_content }
     end
   end
