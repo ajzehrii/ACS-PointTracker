@@ -41,7 +41,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @media screen and (orientation:portrait) {
     .simple-calendar {
-        max-height: 80%;
+        max-height: 80vh;
         overflow-y: scroll;
         border: 1px solid rgb(192, 192, 192);
         table {
