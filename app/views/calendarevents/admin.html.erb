@@ -43,27 +43,27 @@
 
 
 
-<%= month_calendar(events: @meetings) do |date, meetings| %>
-        <div class="day">    
-            <%= date.day %>
-            
-        </div>
-        <% meetings.each do |meeting| %>
-            <% minute = "" %>
-            <% if meeting.minute < 10 %>
-              <%minute = "0"%>
-            <%end%>
-            <div class="card-header">
-              <div class="card-title">
-                <%= meeting.hour %>:<%= minute%><%= meeting.minute %> <%= meeting.format %> | <%= meeting.name %> 
-                </div>
-                <%= link_to 'Show', meeting %> - 
-                <%= link_to 'Edit', edit_meeting_path(meeting) %> - 
-                <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %>
-                
-            </div>
-            <% end %>
-        <% end %>
+<%= month_calendar(attribute: :start_time, end_attribute: :end_time, events: @meetings) do |date, meetings| %>
+          <div class="day">    
+              <%= date.day %>
+              
+          </div>
+          <% meetings.each do |meeting| %>
+              <% minute = "" %>
+              <% if meeting.minute < 10 %>
+                <%minute = "0"%>
+              <%end%>
+              <div class="card-header">
+                <div class="card-title">
+                  <%= meeting.hour %>:<%= minute%><%= meeting.minute %> <%= meeting.format %> | <%= meeting.name %> 
+                  </div>
+                  <%= link_to 'Show', meeting %> - 
+                  <%= link_to 'Edit', edit_meeting_path(meeting) %> - 
+                  <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  
+              </div>
+          <% end %>
+  <% end %>
 
 <br>
 

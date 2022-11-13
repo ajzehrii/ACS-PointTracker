@@ -1,3 +1,103 @@
 // Place all the styles related to the calendarevents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@media screen and (orientation:portrait) {
+    .simple-calendar {
+        max-height: 80%;
+        overflow-y: scroll;
+        border: 1px solid rgb(192, 192, 192);
+        table {
+        }
+        
+        tr {
+            border-top: 0px none ;
+        }
+        
+        th {
+            display: none;
+        }
+        
+        td {
+            border-top: 0px none ;
+            display: none;
+
+        }
+        .day {
+            width: 100%;
+            min-width: 100%;
+            
+        }
+
+        .today {
+        }
+        
+        .prev-month {
+            background: #DDD;
+        }
+        .next-month {
+            background: #DDD;
+        }
+        
+        .has-events {
+            border-top: 0px none ;
+            display:inline;
+            width: 100%;
+            min-width: 100%;
+        }
+        }
+}
+@media screen and (orientation: landscape) {
+.simple-calendar {
+table {
+    border: 1px solid rgb(192, 192, 192);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr {
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 2px;
+    max-width: 20%;
+    border-right: 1px solid rgb(192, 192, 192);
+    border-bottom: 2px solid rgb(192, 192, 192);
+    border-left: 1px solid rgb(192, 192, 192);
+    border-top: 0px none ;
+    border-collapse: collapse;
+
+}
+
+td {
+    padding: 2px;
+    vertical-align: top;
+    width: 12%;
+
+    border: 1px solid #ddd;
+    border-right: 1px solid rgb(192, 192, 192);
+    border-bottom: 1px solid rgb(192, 192, 192);
+    border-left: 1px solid rgb(192, 192, 192);
+    border-top: 0px none rgb(44, 44, 44);
+}
+.day {
+    height: 80px;
+}
+
+.today {
+    background: #FFFFC0;
+}
+
+.prev-month {
+    background: #DDD;
+}
+.next-month {
+    background: #DDD;
+}
+
+.has-events {
+    width: 17%;
+}
+}
+}
