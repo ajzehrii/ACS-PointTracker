@@ -65,8 +65,8 @@
   <tbody>
     <% @meetings.each do |meeting| %>
       <% minute = "" %>
-      <% if meeting.minute < 10 %>
-        <%minute = "0"%>
+      <% if meeting.minute <= 9 %>
+        <% minute = "0"%>
       <%end%>
       <tr>
         <td><%= meeting.date %></td>
