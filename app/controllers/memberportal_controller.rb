@@ -1,4 +1,5 @@
 class MemberportalController < ApplicationController
+  before_action :authenticate_user!, :except => [:welcome]
   def show
     render template: "Memberportal/#{params[:page]}"
   end

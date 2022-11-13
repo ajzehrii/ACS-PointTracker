@@ -1,5 +1,6 @@
 class AcsAdminsController < ApplicationController
   before_action :set_acs_admin, only: %i[show edit update destroy]
+  before_action :authenticate_user!, :except => [:welcome]
 
   # GET /acs_admins or /acs_admins.json
   def index
@@ -37,17 +38,30 @@ class AcsAdminsController < ApplicationController
 
   # POST /acs_admins or /acs_admins.json
   def create
-    @acs_admin = AcsAdmin.new(acs_admin_params)
-
     respond_to do |format|
-      if @acs_admin.save
-        format.html { redirect_to acs_admin_url(@acs_admin), notice: 'Acs admin was successfully created.' }
-        format.json { render :show, status: :created, location: @acs_admin }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @acs_admin.errors, status: :unprocessable_entity }
+      # limits access to admins only
+      authenticate_user!
+
+      # if current user is an admin, continue to page
+      if current_user.admin
+        @acs_admin = AcsAdmin.new(acs_admin_params)
+
+        respond_to do |format|
+          if @acs_admin.save
+            format.html { redirect_to acs_admin_url(@acs_admin), notice: 'Acs admin was successfully created.' }
+            format.json { render :show, status: :created, location: @acs_admin }
+          else
+            format.html { render :new, status: :unprocessable_entity }
+            format.json { render json: @acs_admin.errors, status: :unprocessable_entity }
+          end
+        end
+      #else return to login page 
+      else 
+          format.html { redirect_to login_path, notice: 'You do not have access this page' }
+          format.json { head :no_content }
       end
     end
+    
   end
 
   # PATCH/PUT /acs_admins/1 or /acs_admins/1.json

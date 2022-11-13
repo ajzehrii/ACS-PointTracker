@@ -1,5 +1,6 @@
 class EmailsController < ApplicationController
   before_action :set_email, only: %i[show edit update destroy]
+  before_action :authenticate_user!, :except => [:welcome]
 
   # GET /emails or /emails.json
   def index

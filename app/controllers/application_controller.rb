@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
             portal_path
         end
     end
+
+    private
+    def store_location
+    session[:return_to] = request.env['HTTP_REFERER']	
+    end
+
 end

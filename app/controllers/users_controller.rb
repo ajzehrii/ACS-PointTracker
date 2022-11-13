@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!, :except => [:welcome]
     #ignore this
 
     def profile
+        @attendances = Attendance.all
+        @meetings = Meeting.all
+        @users = User.all
+    end
+
+    def profilea
         @attendances = Attendance.all
         @meetings = Meeting.all
         @users = User.all

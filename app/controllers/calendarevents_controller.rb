@@ -1,5 +1,6 @@
 class CalendareventsController < ApplicationController
   before_action :set_calendarevent, only: %i[show edit update destroy]
+  before_action :authenticate_user!, :except => [:welcome]
 
   # GET /calendarevents or /calendarevents.json
   def index

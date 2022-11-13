@@ -1,5 +1,6 @@
 class MemberMeetingsController < ApplicationController
   before_action :set_member_meeting, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, :except => [:welcome]
 
   # GET /member_meetings or /member_meetings.json
   def index

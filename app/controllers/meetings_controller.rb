@@ -1,6 +1,8 @@
 
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, :except => [:welcome]
+  before_action :store_location, :only => [:search, :show]
 
   # GET /meetings or /meetings.json
   def index

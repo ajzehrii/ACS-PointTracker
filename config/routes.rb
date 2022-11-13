@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   get"admin/dues", to: "dues#admin"
   post"admin/dues", to: "dues#create"
   post"meetings/:id", to: "attendances#create"
-
-  get"m/profile", to: "users#profile"
+  get"admin/profile", to: "users#profilea"
+  get"portal/profile", to: "users#profile"
   get"m/attendance", to: "meetings#m"
   post"m/attendance", to: "attendances#create"
 

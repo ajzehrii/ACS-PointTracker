@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Admin Portal | ACS Texas A&M</title>
+    <title>My Profile | ACS Texas A&M</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,7 +18,7 @@
 
     <ul class="navbar-nav navbar-nav-right ml-auto d-lg-flex align-items-center ">
       <li class="nav-item">
-        <a class="nav-link" href=<%=admin_path%>>Back</a>
+        <a class="nav-link" href=<%=url_for(:back)%>>Back</a>
       </li>
       <li class="nav-item dropdown-dark ">
         <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,34 +34,26 @@
   </div>
 </nav>
 
-<center>
-
 <p id="notice"><%= notice %></p>
 
-<h1>Emails</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @emails.each do |email| %>
-      <tr>
-        <td><%= email.address %></td>
-        <td><%= link_to 'Show', email %></td>
-        <td><%= link_to 'Edit', edit_email_path(email) %></td>
-        <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="card">
+  <h5 class="card-header">Profile : <%= current_user.student_id%></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= current_user.first%> <%= current_user.last%></h5> 
+    <% n  = 0 %>
+    <p class="card-text">Meetings Attended : </p>
+    <% @attendances.each do |attendance| %>
+        <% if attendance.student_ID == current_user.student_id %>
+            <% n  = n+1 %>
+            <% @meetings.each do |meeting| %>
+                <% if attendance.meeting_ID == meeting.meeting_ID %>
+                    <p><%= meeting.date %> | <%= meeting.name %> : <%= meeting.description %> </p>
+                <% end %>  
+            <% end %>  
+        <% end %>  
     <% end %>
-  </tbody>
-</table>
+    <p class="card-text">Points :  <%= n %></p>
 
-<br>
-
-<%= link_to 'New Email', new_email_path %>
-
-</center>
+    <%= link_to 'Edit Profile',  edit_user_registration_path(current_user) %>
+  </div>
+</div>
