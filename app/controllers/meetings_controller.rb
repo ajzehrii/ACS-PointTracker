@@ -59,9 +59,13 @@ class MeetingsController < ApplicationController
   def create
     @meetings = Meeting.all
     @meeting = Meeting.new(meeting_params)
-    @meeting.start_time = @meeting.date
-    @meeting.end_time = @meeting.date
-
+    if @meeting.format =='PM'
+      @meeting.start_time = DateTime.new(@meeting.date.year,@meeting.date.month,@meeting.date.day,@meeting.hour+12,@meeting.minute,0,'+0')
+      @meeting.end_time = DateTime.new(@meeting.date.year,@meeting.date.month,@meeting.date.day,@meeting.hour+12,@meeting.minute,0,'+0')
+    else
+      @meeting.start_time = DateTime.new(@meeting.date.year,@meeting.date.month,@meeting.date.day,@meeting.hour,@meeting.minute,0,'+0')
+      @meeting.end_time = DateTime.new(@meeting.date.year,@meeting.date.month,@meeting.date.day,@meeting.hour,@meeting.minute,0,'+0')
+    end
     respond_to do |format|
       if @meeting.save
         format.html { redirect_to admin_path, notice: "Meeting was successfully created." }

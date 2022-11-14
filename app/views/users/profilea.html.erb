@@ -25,7 +25,7 @@
           <%= image_tag("ACS-profile.png", width: "30", height: "30") %>
         </a>       
         <div class="dropdown-menu dropdown-menu-right .bg-light" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="profile">Profile</a>
+          <a class="dropdown-item" href=<%=admin_profile_path%>>Profile</a>
           <a class="dropdown-item" href=<%=root_path%>>Home</a>
           <div class="dropdown-divider bg-dark"></div>
           <a class="dropdown-item" href=<%=logout_path%>>Logout</a>
@@ -35,8 +35,8 @@
 </nav>
 
 <p id="notice"><%= notice %></p>
-
-<div class="card">
+<center>
+<div class="card" width="600px">
   <h5 class="card-header">Profile : <%= current_user.student_id%></h5>
   <div class="card-body">
     <h5 class="card-title"><%= current_user.first%> <%= current_user.last%></h5> 
@@ -57,3 +57,5 @@
     <%= link_to 'Edit Profile',  edit_user_registration_path(current_user) %>
   </div>
 </div>
+
+</center>

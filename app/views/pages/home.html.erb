@@ -5,9 +5,6 @@
     <title>Home | ACS Texas A&M</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js" integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 
@@ -40,19 +37,38 @@
 </div>
 <div class = "landscape-navs">
     <div class="pos-f-t">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-nav text-muted">
+    <a class="navbar-brand " href=<%=root_path%>>
+        <%= image_tag("ACS-logo-og.png", width: "30", height: "30") %>
+            American Chemical Society | Texas A&M
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="../home">American Chemical Society | Texas A&M</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+
+        <ul class="navbar-nav navbar-nav-right ml-auto d-lg-flex align-items-center ">
+        <li class="nav-item dropdown-dark ">
+            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag("ACS-profile.png", width: "30", height: "30") %>
+            </a>
+
+            
+            <div class="dropdown-menu dropdown-menu-right .bg-light" aria-labelledby="navbarDropdownMenuLink">
+            <% if current_user %>
+                <% if current_user.admin %>
+                    <a class="dropdown-item" href=<%=admin_path%>>Portal</a>
+                <% else %>
+                    <a class="dropdown-item" href=<%=portal_path%>>Portal</a>
+                <% end %>
+                <div class="dropdown-divider bg-dark"></div>
+                <a class="dropdown-item" href=<%=logout_path%>>Logout</a>
+            <% else %>
+                <a class="dropdown-item" href=<%=login_path%>>Login</a>
+            <%end%>
+            </div>
+        </li>
     </div>
-    <span class="navbar-text">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item ">
-        <a class="nav-link" href="../login">My Account&nbsp&nbsp<span class="sr-only">(current)</span></a>
-      </li>
-    </span>
     </nav>
 
     </div>
