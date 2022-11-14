@@ -1,36 +1,50 @@
+
 <!DOCTYPE html>
 <head>
-    <title>My Meetings and Events | ACS Texas A&M</title>
+    <title>Admin Portal | ACS Texas A&M</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.min.js" integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-nav">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+  </head>
+  
+<nav class="navbar navbar-expand-lg navbar-dark bg-nav text-muted">
+  <a class="navbar-brand " href="<%=portal_path%>">
+    <%= image_tag("ACS-logo-og.png", width: "30", height: "30") %>
+         ACS Portal
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="home">American Chemical Society | Texas A&M</a>
+  <div class="collapse navbar-collapse" id="navbarText">
+
+    <ul class="navbar-nav navbar-nav-right ml-auto d-lg-flex align-items-center ">
+      <li class="nav-item dropdown-dark ">
+        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag("ACS-profile.png", width: "30", height: "30") %>
+        </a>
+
+        
+        <div class="dropdown-menu dropdown-menu-right .bg-light" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href=<%=portal_profile_path%>>Profile</a>
+          <a class="dropdown-item" href=<%=root_path%>>Home</a>
+          <div class="dropdown-divider bg-dark"></div>
+          <a class="dropdown-item" href=<%=logout_path%>>Logout</a>
+        </div>
+      </li>
   </div>
-  <span class="navbar-text">
-  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <li class="nav-item "> 
-      <a class="nav-link" href="m/profile"><%= current_user.first%> <%= current_user.last%> | My Profile<span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item ">
-      <a class="nav-link" href="../logout">Logout<span class="sr-only">(current)</span></a>
-    </li>
-  </span>
 </nav>
+
 
 <center>
 
+
+
 <p id="notice"><%= notice %></p>
 <div class="container">
-
+<p><i><span id="date"></span></i></p><script>n =  new Date(); 
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+document.getElementById("date").innerHTML = y + "-" + m + "-" + d; </script> 
 <% count = 0 %>
 <% @meetings.each do |meeting| %>
   <% if meeting.active %>
@@ -41,29 +55,23 @@
   <p> [There are currently no active meetings] </p>
 <%else%>
 <table>
+<h5><b> Active Meetings </b></h5>
   <thead>
     <tr>
-      <th>Date&nbsp</th>
-      <th>Time&nbsp</th>
-      <th>Name&nbsp</th>
-      <th>Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <p>Date/Time: <span id="date"></span></p><script>n =  new Date(); 
-    y = n.getFullYear();
-    m = n.getMonth() + 1;
-    d = n.getDate();
-    document.getElementById("date").innerHTML = y + "-" + m + "-" + d; </script> 
     <% @meetings.each do |meeting| %>
+      <% minute = "" %>
+      <% if meeting.minute < 10 %>
+        <%minute = "0"%>
+      <%end%>
       <% if meeting.active %>
         <tr>
-          <td><%= meeting.date %></td>
-          <td><%= meeting.hour %>:<%= meeting.minute %> <%= meeting.format %></td>
+          <td><%= meeting.hour %>:<%= minute%><%= meeting.minute %> <%= meeting.format %></td>
           <td><%= meeting.name %></td>
-          <td><%= meeting.description %></td>
           <td>
           <%= form_with(model: @attendance) do |form| %>
               <div class="field">
@@ -106,44 +114,50 @@
         </div>
         <% meetings.each do |meeting| %>
             <div class="card-header">
-              <div class="card-title">
-                  <%= meeting.hour %>:<%= meeting.minute %> <%= meeting.format %> | <%= meeting.name %>
+              <div class="card-title">  
+                  <% minute = "" %>
+                  <% if meeting.minute < 10 %>
+                    <%minute = "0"%>
+                  <%end%>
+                  <% if meeting.active %>
+                    <%= form_with(model: @attendance) do |form| %>
+                        <%= form.hidden_field :student_ID, :value => current_user.student_id  %>
+                        <%= form.hidden_field :meeting_ID, :value => meeting.meeting_ID  %>
+                      <% n  = 0 %>
+                      <% @attendances.each do |attendance| %>
+                        <% if attendance.student_ID == current_user.student_id && meeting.meeting_ID == attendance.meeting_ID %>
+                          <%= meeting.hour %>:<%= minute%><%= meeting.minute %> <%= meeting.format %> | <%= meeting.name %> - Signed in 
+                          <% n  = 1 %>
+                        <% end %>
+                      <% end %> 
+                      <% if n  == 0 %>
+
+                        
+                      <%= meeting.hour %>:<%= minute%><%= meeting.minute %> <%= meeting.format %> | <%= meeting.name %> - <%= form.submit "Sign in" %>
+                        
+                      <% end %> 
+                    <% end %> 
+                  <%else%>
+                    <% aa=0%>
+                    <% @attendances.each do |attendance| %>
+                      <% if attendance.student_ID == current_user.student_id && meeting.meeting_ID == attendance.meeting_ID %>
+                      <% aa=1%>
+                      <%end%>
+                    <% end %> 
+                    <% if aa == 1%>
+                      <%= meeting.hour %>:<%= minute%><%= meeting.minute %> <%= meeting.format %> | <%= meeting.name %><i> - Attended </i>
+                    <% else %>
+                      <%= meeting.hour %>:<%= minute%><%= meeting.minute %> <%= meeting.format %> | <%= meeting.name %>
+                    <% end %> 
+                  <% end %> 
                   </div>
+                  <%= link_to 'More', meeting %>
+                  
               </div>
             <% end %>
         <% end %>
 
 
-
-<br>
-
-<br>
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @meetings.each do |meeting| %>
-    <tr>
-      <td><%= meeting.date %></td>
-      <td><%= meeting.name %></td>
-      <td><%= meeting.description %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<p id="notice"><%= notice %></p>
 
 
 

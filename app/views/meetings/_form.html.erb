@@ -55,6 +55,11 @@
     <%= form.text_area :description %>
   </div>
 
+  <div class="field">
+    <%= form.label :active %> (members can sign in)
+    <%= form.check_box :active %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

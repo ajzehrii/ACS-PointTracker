@@ -14,4 +14,13 @@ class ApplicationController < ActionController::Base
             portal_path
         end
     end
+
+    private
+        def store_location
+        session[:return_to] = request.env['HTTP_REFERER']	
+        end
+        def set_time_zone
+            Time.zone = current_user.time_zone
+        end
+
 end
