@@ -1,0 +1,98 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "0d65275a6b9e56ab756db50e4ad75a7394a308992823937c716d8807ee4c8848",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/pages_controller.rb",
+      "line": 3,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(template => \"pages/#{params[:page]}\", {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PagesController",
+        "method": "show"
+      },
+      "user_input": "params[:page]",
+      "confidence": "Medium",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "94df6ed7314c750df77aa755c42940a4b0c463ee1223934d66cc7b662e9aba51",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/memberportal_controller.rb",
+      "line": 4,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(template => \"Memberportal/#{params[:page]}\", {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "MemberportalController",
+        "method": "show"
+      },
+      "user_input": "params[:page]",
+      "confidence": "Medium",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "b489cf3ddb8c3fadb1295b293f85292c5db0520bae59c52249bc8c789bdbc035",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/adminportal_controller.rb",
+      "line": 4,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(template => \"Adminportal/#{params[:page]}\", {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "AdminportalController",
+        "method": "show"
+      },
+      "user_input": "params[:page]",
+      "confidence": "Medium",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 105,
+      "fingerprint": "e0a6f877c52348b8cbdbbc08624463601b6dc819628c782f3d4fd3888f6fb595",
+      "check_name": "PermitAttributes",
+      "message": "Potentially dangerous key allowed for mass assignment",
+      "file": "app/controllers/users_controller.rb",
+      "line": 61,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params.require(:user).permit(:student_id, :admin)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UsersController",
+        "method": "user_params"
+      },
+      "user_input": ":admin",
+      "confidence": "High",
+      "cwe_id": [
+        915
+      ],
+      "note": ""
+    }
+  ],
+  "updated": "2022-11-14 10:04:06 +0000",
+  "brakeman_version": "5.3.1"
+}
