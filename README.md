@@ -56,6 +56,7 @@ The application can be seen using a browser and navigating to http://localhost:3
 ** Heroku has automatic deploys linked to this github. 
 * Test app (linked to test branch) - https://acs--testbranch.herokuapp.com/
 * Stagin app (linked to main branch) - https://acs-stage-test-app.herokuapp.com/
+* Main app (Customer ownership) - https://acs-pointtracker.herokuapp.com/
 
 
 ## CI/CD ##
