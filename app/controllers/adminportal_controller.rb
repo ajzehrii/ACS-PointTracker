@@ -1,8 +1,5 @@
 class AdminportalController < ApplicationController
   before_action :authenticate_user!, :except => [:welcome]
-  def show
-    render template: "Adminportal/#{params[:page]}"
-  end
 
   # GET /calendarevents or /calendarevents.json
 

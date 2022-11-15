@@ -45,18 +45,30 @@ class UsersController < ApplicationController
    
    
     def update
-        @user = User.find(params[:id])
-        respond_to do |format|
-            if @user.update(user_params)
-                format.html { redirect_to request.referrer, notice: 'Member successfully updated' }
-                format.json { head :no_content }
-            else
-            render 'edit'
+        if current_user.admin
+            @user = User.find(params[:id])
+            respond_to do |format|
+                if @user.update(user_params)
+                    format.html { redirect_to request.referrer, notice: 'Member successfully updated' }
+                    format.json { head :no_content }
+                else
+                render 'edit'
+                end
             end
+        else 
+            format.html { redirect_to login_path, notice: 'You do not have access this page' }
+            format.json { head :no_content }
         end
     end
 
     def user_params
-        params.require(:user).permit(:student_id, :admin)
+        if current_user.admin
+            params.permit(:student_id, :password, :email, :admin)
+        #else return to login page 
+        else 
+            format.html { redirect_to login_path, notice: 'You do not have access this page' }
+            format.json { head :no_content }
+        end
+        
     end
 end
