@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>Admin Portal | ACS Texas A&M</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-muted">
+  <a class="navbar-brand text-warning" href=<%=admin_path%>>
+    <%= image_tag("ACS-logo-og.png", width: "30", height: "30") %>
+         Admin Portal
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+
+    <ul class="navbar-nav navbar-nav-right ml-auto d-lg-flex align-items-center ">
+      <li class="nav-item">
+        <a class="nav-link" href=<%=admin_path%>>Back</a>
+      </li>
+      <li class="nav-item dropdown-dark ">
+        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag("ACS-profile.png", width: "30", height: "30") %>
+        </a>       
+        <div class="dropdown-menu dropdown-menu-right .bg-light" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href=<%=admin_profile_path%>>Profile</a>
+          <a class="dropdown-item" href=<%=root_path%>>Home</a>
+          <div class="dropdown-divider bg-dark"></div>
+          <a class="dropdown-item" href=<%=logout_path%>>Logout</a>
+        </div>
+      </li>
+  </div>
+</nav>
+
+<center>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Emails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emails.each do |email| %>
+      <tr>
+        <td><%= email.address %></td>
+        <td><%= link_to 'Show', email %></td>
+        <td><%= link_to 'Edit', edit_email_path(email) %></td>
+        <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email', new_email_path %>
+
+</center>

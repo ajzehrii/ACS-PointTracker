@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+    <title>Admin Portal | ACS Texas A&M</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-muted">
+  <a class="navbar-brand text-warning" href=<%=admin_path%>>
+    <%= image_tag("ACS-logo-og.png", width: "30", height: "30") %>
+         Admin Portal
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+
+    <ul class="navbar-nav navbar-nav-right ml-auto d-lg-flex align-items-center ">
+      <li class="nav-item dropdown-dark ">
+        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag("ACS-profile.png", width: "30", height: "30") %>
+        </a>       
+        <div class="dropdown-menu dropdown-menu-right .bg-light" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href=<%=admin_profile_path%>>Profile</a>
+          <a class="dropdown-item" href=<%=root_path%>>Home</a>
+          <div class="dropdown-divider bg-dark"></div>
+          <a class="dropdown-item" href=<%=logout_path%>>Logout</a>
+        </div>
+      </li>
+  </div>
+</nav>
+
+<center>
+    <p id="notice"><%= notice %></p>
+</center>
+
+<center>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        <div onclick="window.location.href = 'admin/calendar';" class="card" style="width: 18rem; margin-top: 30px;">
+        <%= image_tag("ACS-calendar.png", width: "100%") %>
+            <div class="card-body text-muted">
+            <center>
+            <p class="card-text">View & manage Calendar</p>
+            </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div onclick="window.location.href = 'admin/emails';" class="card" style="width: 18rem; margin-top: 30px;">
+        <%= image_tag("ACS-emails.png", width: "100%") %>
+            <div class="card-body text-muted">
+            <center>
+            <p class="card-text">View & manage Email List</p>
+            </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div onclick="window.location.href = 'admin/members';" class="card" style="width: 18rem; margin-top: 30px;">
+        <%= image_tag("ACS-members.png", width: "100%") %>
+            <div class="card-body text-muted">
+            <center>
+            <p class="card-text">View & manage club members</p>
+            </center>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+        <div onclick="window.location.href = 'admin/meetings';" class="card" style="width: 18rem; margin-top: 30px;">
+        <%= image_tag("ACS-events.png", width: "100%") %>
+            <div class="card-body text-muted">
+            <center>
+            <p class="card-text">View & manage meetings</p>
+            </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div onclick="window.location.href = 'admin/admins';" class="card" style="width: 18rem; margin-top: 30px;">
+        <%= image_tag("ACS-admins.png", width: "100%") %>
+            <div class="card-body text-muted">
+            <center>
+            <p class="card-text">View & manage admin access</p>
+            </center>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div onclick="window.location.href = 'admin/dues';" class="card" style="width: 18rem; margin-top: 30px;">
+        <%= image_tag("ACS-dues.png", width: "100%") %>
+            <div class="card-body text-muted">
+            <center>
+            <p class="card-text">View & manage dues</p>
+            </center>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+</center>

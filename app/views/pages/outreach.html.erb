@@ -17,7 +17,7 @@
             <a href="officer-team">Officer Team</a>
             <a href="general-meetings">General Meetings</a>
             <a href="https://secure.touchnet.com/C21490_ustores/web/store_main.jsp?STOREID=358"  target="_blank">Store</a>
-            <a href="#">Login</a>
+            <a href="login">Login</a>
         </ul>
         </div>
     </div>
@@ -34,15 +34,38 @@
 </div>
 <div class = "landscape-navs">
     <div class="pos-f-t">
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-nav p-4">
-        <h5 class="text-white h4"><a href="#">Login</a></h5>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-nav text-muted">
+    <a class="navbar-brand " href=<%=root_path%>>
+        <%= image_tag("ACS-logo-og.png", width: "30", height: "30") %>
+            American Chemical Society | Texas A&M
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+
+        <ul class="navbar-nav navbar-nav-right ml-auto d-lg-flex align-items-center ">
+        <li class="nav-item dropdown-dark ">
+            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag("ACS-profile.png", width: "30", height: "30") %>
+            </a>
+
+            
+            <div class="dropdown-menu dropdown-menu-right .bg-light" aria-labelledby="navbarDropdownMenuLink">
+            <% if current_user %>
+                <% if current_user.admin %>
+                    <a class="dropdown-item" href=<%=admin_path%>>Portal</a>
+                <% else %>
+                    <a class="dropdown-item" href=<%=portal_path%>>Portal</a>
+                <% end %>
+                <div class="dropdown-divider bg-dark"></div>
+                <a class="dropdown-item" href=<%=logout_path%>>Logout</a>
+            <% else %>
+                <a class="dropdown-item" href=<%=login_path%>>Login</a>
+            <%end%>
+            </div>
+        </li>
     </div>
-    <nav class="navbar navbar-dark bg-nav">
-        <button class="member-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        <p>Members</p>
-        </button>
     </nav>
     </div>
 
