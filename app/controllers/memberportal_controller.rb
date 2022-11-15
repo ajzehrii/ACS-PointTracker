@@ -1,8 +1,7 @@
+# frozen_string_literal: true
+
 class MemberportalController < ApplicationController
-  before_action :authenticate_user!, :except => [:welcome]
-  def show
-    render template: "Memberportal/#{params[:page]}"
-  end
+  before_action :authenticate_user!, except: [:welcome]
 
   def member
     @calendarevents = Calendarevent.all

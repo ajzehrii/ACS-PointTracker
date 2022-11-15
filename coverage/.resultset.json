@@ -1,452 +1,27 @@
 {
   "RSpec": {
     "coverage": {
-      "/csce431/acs-pointtracker/spec/feature/integration_spec.rb": {
+      "/rails_app/spec/feature/integration_spec.rb": {
         "lines": [
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/spec/rails_helper.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           1,
           null,
           0,
           0,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
           null
         ]
       },
-      "/csce431/acs-pointtracker/config/environment.rb": {
+      "/rails_app/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
-          null,
-          null,
-          1
-        ]
-      },
-      "/csce431/acs-pointtracker/config/application.rb": {
-        "lines": [
           1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/boot.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1
-        ]
-      },
-      "/csce431/acs-pointtracker/config/environments/test.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/application_controller_renderer.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/assets.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/backtrace_silencers.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/content_security_policy.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/cookies_serializer.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          1
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/filter_parameter_logging.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/inflections.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/mime_types.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/permissions_policy.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/initializers/wrap_parameters.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/config/routes.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/helpers/acs_admins_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/helpers/application_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/helpers/attendances_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/helpers/dues_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/helpers/emails_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/helpers/meetings_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/helpers/members_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/controllers/emails_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          2,
           1,
           null,
           0,
@@ -456,9 +31,79 @@
           null,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/rails_app/config/environment.rb": {
+        "lines": [
+          null,
           1,
+          null,
+          null,
+          0
+        ]
+      },
+      "/rails_app/config/application.rb": {
+        "lines": [
+          1,
+          null,
           0,
+          null,
+          null,
+          null,
           0,
+          null,
           0,
           0,
           null,
@@ -469,48 +114,22 @@
           null,
           null,
           null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          0,
           null,
           null,
           null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
           null,
           null
         ]
       },
-      "/csce431/acs-pointtracker/app/controllers/application_controller.rb": {
+      "/rails_app/config/boot.rb": {
         "lines": [
           1,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/models/email.rb": {
-        "lines": [
+          null,
           1,
-          null
-        ]
-      },
-      "/csce431/acs-pointtracker/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
+          0
         ]
       }
     },
-    "timestamp": 1666041509
+    "timestamp": 1668488107
   }
 }

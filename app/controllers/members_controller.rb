@@ -1,27 +1,30 @@
+# frozen_string_literal: true
+
 class MembersController < ApplicationController
   before_action :set_member, only: %i[show edit update destroy]
-  before_action :authenticate_user!, :except => [:welcome]
+  before_action :authenticate_user!, except: [:welcome]
 
   # GET /members or /members.json
   def index
     @members = Member.all
   end
+
   def admin
     @members = Member.all
     @users = User.all
     @attendances = Attendance.all
-        # limits access to admins only
+    # limits access to admins only
     respond_to do |format|
       # limits access to admins only
       authenticate_user!
 
       # if current user is an admin, continue to page
       if current_user.admin
-          return
-      #else return to login page 
-      else 
-          format.html { redirect_to login_path, notice: 'You do not have access this page' }
-          format.json { head :no_content }
+        return
+      # else return to login page
+      else
+        format.html { redirect_to login_path, notice: 'You do not have access this page' }
+        format.json { head :no_content }
       end
     end
   end
