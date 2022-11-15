@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MemberportalController < ApplicationController
-  before_action :authenticate_user!, :except => [:welcome]
+  before_action :authenticate_user!, except: [:welcome]
 
   def member
     @calendarevents = Calendarevent.all

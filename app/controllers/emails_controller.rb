@@ -1,25 +1,27 @@
+# frozen_string_literal: true
+
 class EmailsController < ApplicationController
   before_action :set_email, only: %i[show edit update destroy]
-  before_action :authenticate_user!, :except => [:welcome]
+  before_action :authenticate_user!, except: [:welcome]
 
   # GET /emails or /emails.json
   def index
     @emails = Email.all
   end
+
   def admin
     @emails = Email.all
-        # limits access to admins only
+    # limits access to admins only
     authenticate_user!
 
     # if current user is an admin, continue to page
     if current_user.admin
-        return
-    #else return to login page 
-    else 
-        redirect_to login_path
+      nil
+    # else return to login page
+    else
+      redirect_to login_path
     end
   end
-  
 
   # GET /emails/1 or /emails/1.json
   def show; end

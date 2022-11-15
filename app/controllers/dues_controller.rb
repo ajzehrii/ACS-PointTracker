@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
 class DuesController < ApplicationController
   before_action :set_due, only: %i[show edit update destroy]
-  before_action :authenticate_user!, :except => [:welcome]
+  before_action :authenticate_user!, except: [:welcome]
 
   # GET /dues or /dues.json
   def index
     @dues = Due.all
   end
+
   def admin
     @dues = Due.all
     @users = User.all

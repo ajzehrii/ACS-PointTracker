@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CalendareventsController < ApplicationController
   before_action :set_calendarevent, only: %i[show edit update destroy]
-  before_action :authenticate_user!, :except => [:welcome]
+  before_action :authenticate_user!, except: [:welcome]
 
   # GET /calendarevents or /calendarevents.json
   def index
@@ -11,14 +13,15 @@ class CalendareventsController < ApplicationController
 
       # if current user is an admin, continue to page
       if current_user.admin
-          return
-      #else return to login page 
-      else 
-          format.html { redirect_to login_path, notice: 'You do not have access this page' }
-          format.json { head :no_content }
+        return
+      # else return to login page
+      else
+        format.html { redirect_to login_path, notice: 'You do not have access this page' }
+        format.json { head :no_content }
       end
     end
   end
+
   def admin
     @calendarevents = Calendarevent.all
     @meetings = Meeting.all
@@ -28,11 +31,11 @@ class CalendareventsController < ApplicationController
 
       # if current user is an admin, continue to page
       if current_user.admin
-          return
-      #else return to login page 
-      else 
-          format.html { redirect_to login_path, notice: 'You do not have access this page' }
-          format.json { head :no_content }
+        return
+      # else return to login page
+      else
+        format.html { redirect_to login_path, notice: 'You do not have access this page' }
+        format.json { head :no_content }
       end
     end
   end
@@ -40,7 +43,6 @@ class CalendareventsController < ApplicationController
   def member
     @calendarevents = Calendarevent.all
   end
-  
 
   # GET /calendarevents/1 or /calendarevents/1.json
   def show; end
@@ -55,10 +57,10 @@ class CalendareventsController < ApplicationController
       # if current user is an admin, continue to page
       if current_user.admin
         return
-      #else return to login page 
-      else 
-          format.html { redirect_to login_path, notice: 'You do not have access this page' }
-          format.json { head :no_content }
+      # else return to login page
+      else
+        format.html { redirect_to login_path, notice: 'You do not have access this page' }
+        format.json { head :no_content }
       end
     end
   end
@@ -73,10 +75,10 @@ class CalendareventsController < ApplicationController
       # if current user is an admin, continue to page
       if current_user.admin
         return
-      #else return to login page 
-      else 
-          format.html { redirect_to login_path, notice: 'You do not have access this page' }
-          format.json { head :no_content }
+      # else return to login page
+      else
+        format.html { redirect_to login_path, notice: 'You do not have access this page' }
+        format.json { head :no_content }
       end
     end
   end
@@ -112,7 +114,7 @@ class CalendareventsController < ApplicationController
   # DELETE /calendarevents/1 or /calendarevents/1.json
   def destroy
     @calendarevent.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to admin_calendar_url, notice: 'Calendarevent was successfully destroyed.' }
       format.json { head :no_content }
@@ -131,10 +133,10 @@ class CalendareventsController < ApplicationController
       # if current user is an admin, continue to page
       if current_user.admin
         return
-      #else return to login page 
-      else 
-          format.html { redirect_to login_path, notice: 'You do not have access this page' }
-          format.json { head :no_content }
+      # else return to login page
+      else
+        format.html { redirect_to login_path, notice: 'You do not have access this page' }
+        format.json { head :no_content }
       end
     end
   end
