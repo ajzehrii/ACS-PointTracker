@@ -61,7 +61,9 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 ## CI/CD ##
 
-TBD
+By utilizing Github Actions and its CI/CD pipelines, we are able to quick check if our code builds successfully and can run in the pipeline. 
+By using this we were able to test different  additions of code before merging to other members code. 
+We where also able to create different staging apps in the Heroku pipeline to further test individual updates. 
 
 ## Support ##
 
