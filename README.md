@@ -56,14 +56,16 @@ The application can be seen using a browser and navigating to http://localhost:3
 ** Heroku has automatic deploys linked to this github. 
 * Test app (linked to test branch) - https://acs--testbranch.herokuapp.com/
 * Stagin app (linked to main branch) - https://acs-stage-test-app.herokuapp.com/
+* Main app (Customer ownership) - https://acs-pointtracker.herokuapp.com/
 
 
 ## CI/CD ##
 
-TBD
+By utilizing Github Actions and its CI/CD pipelines, we are able to quick check if our code builds successfully and can run in the pipeline. 
+By using this we were able to test different  additions of code before merging to other members code. 
+We where also able to create different staging apps in the Heroku pipeline to further test individual updates. 
 
 ## Support ##
 
 Admins looking for support should first look at the application help page.
 Users looking for help seek out assistance from the customer.
-
