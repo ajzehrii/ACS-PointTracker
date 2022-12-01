@@ -62,9 +62,13 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:student_id, :admin)
+        if current_user.admin
+            params.require(:user).permit(:student_id, :admin)
         #else return to login page 
-
+        else 
+            format.html { redirect_to login_path, notice: 'You do not have access this page' }
+            format.json { head :no_content }
+        end
         
     end
 end
