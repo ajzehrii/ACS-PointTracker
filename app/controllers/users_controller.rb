@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 
     def user_params
         if current_user.admin
-            params.permit(:student_id, :password, :email, :admin)
+            params.permit(:student_id, :admin)
         #else return to login page 
         else 
             format.html { redirect_to login_path, notice: 'You do not have access this page' }
